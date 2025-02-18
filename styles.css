@@ -152,6 +152,14 @@ p {
   }
 }
 
+a {
+  color: #000;
+}
+
+a:hover {
+  background-color: yellow;
+}
+
 div {
   margin-bottom: 100px;
 }
