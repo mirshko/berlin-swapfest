@@ -29,8 +29,14 @@ import { REGISTER_LINK } from "../constants/links";
 
   <!-- <FlyerTabs /> -->
 
-  <a class="register-link" href={REGISTER_LINK} target="_blank">Register here</a
+  <a
+    class="register-link"
+    href={REGISTER_LINK}
+    target="_blank"
+    onclick="fathom.trackEvent('register here click');"
   >
+    Register here
+  </a>
 
   <div>
     <p>
