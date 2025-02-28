@@ -11,5 +11,8 @@
   "dependencies": {
     "@fontsource/caprasimo": "^5.1.1",
     "astro": "^5.4.0"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.5"
   }
 }
