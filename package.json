@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@fontsource/caprasimo": "^5.1.1",
-    "astro": "^5.4.0"
+    "astro": "^5.4.0",
+    "motion": "^12.4.7"
   },
   "devDependencies": {
     "schema-dts": "^1.1.2",

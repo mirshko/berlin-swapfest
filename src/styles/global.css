@@ -1,37 +1,76 @@
 :root {
   --header-font: "Caprasimo", system-ui;
   --body-font: "Courier New", Courier, monospace;
+  --highlight-color: yellow;
+  --black: #000;
+  --white: #fff;
+}
+
+html {
+  font-family: var(--header-font);
+  line-height: 1.6;
+  color: var(--black);
 }
 
 body {
-  font-family: var(--header-font);
-  color: #000;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   margin: 0;
   padding: 0;
-  line-height: 1.6;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-image: url("../assets/bg.png");
+  /* background-image: url("../assets/bg.png"); */
+  background: #f5f5f5;
 }
 
 ::selection {
-  background-color: yellow;
-  color: #000;
+  background-color: var(--highlight-color);
+  color: var(--black);
 }
 
 h1,
 h2,
 h3 {
-  color: #000;
+  color: var(--black);
   font-weight: normal;
+  margin: 0;
+}
+
+p {
+  font-size: clamp(1.125rem, 0.875rem + 0.5208vw, 1.5rem);
+  width: 100%;
+  max-width: 64rem;
+  margin: 0;
+  font-family: var(--body-font);
+  font-weight: bold;
+}
+
+a {
+  color: var(--black);
+}
+
+a:hover {
+  background-color: var(--highlight-color);
+}
+
+/* Hero */
+
+.hero {
+  padding: 0;
+  margin: 0;
+  padding-bottom: 100px;
+}
+
+.hero-bg {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* HEADLINE STYLING */
 
-h1 {
+.h1 {
   text-align: center;
   margin-top: 20px;
   font-size: 15vw;
@@ -41,7 +80,7 @@ h1 {
   margin-bottom: 0;
 }
 
-h1 span {
+.h1 span {
   display: inline-block;
 }
 
@@ -115,12 +154,11 @@ h1 span {
   transform: rotate(-4deg) scale(1.07);
 }
 
-h2 {
+.faq-header {
   font-size: 5vw;
-  background-color: #000;
-  color: #fff;
+  background-color: var(--black);
+  color: var(--white);
   padding: 0 2vw;
-  margin: 0;
   border-radius: 2vw;
 }
 
@@ -136,94 +174,60 @@ h2 {
   position: relative;
 }
 
-h3 {
-  margin-top: 15px;
-  font-size: 1.5em;
-}
-
-div {
-  padding: 15px;
-  margin: 10px auto;
-}
-
-p {
-  font-size: clamp(1.125rem, 0.875rem + 0.5208vw, 1.5rem);
-  width: 100%;
-  max-width: 64rem;
-  margin: 0 auto;
-  font-family: var(--body-font);
-  margin-bottom: 20px;
-  font-weight: bold;
-}
-
 .register-link {
   font-size: 5vw;
-  margin: 40px auto;
-  text-align: center;
 }
 
+/* Utils */
 
-a {
-  color: #000;
+.mb-6 {
+  margin-bottom: 1.5rem;
 }
 
-a:hover {
-  background-color: yellow;
-}
-
-div {
+.mb-100 {
   margin-bottom: 100px;
 }
 
-/* RIP OFF TABS */
-
-.tabs {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 200px;
-  margin-bottom: 0;
-  width: 100%;
+.relative {
+  position: relative;
 }
-.tab {
-  /* flex: 1; */
-  background: white;
-  border-top: 1px solid #000;
-  border-right: 1px solid #000;
-  border-bottom: 1px solid #000;
-  padding: 10px;
-  transform: rotate(90deg);
-  cursor: pointer;
+
+.mt-0 {
+  margin-top: 0;
+}
+
+.mt-20 {
+  margin-top: 5rem;
+}
+
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+
+.text-center {
   text-align: center;
-  transition: transform 1s, opacity 1s;
-  transform-origin: top right; /* Rotate from the top right corner */
-  margin-top: 60px;
-  margin-left: -118px;
 }
 
-.tab.trashed {
-  opacity: 0;
-  visibility: hidden; /* Hide the tab but keep the space */
-  transform: rotate(180deg) translateY(200px); /* Rotate and move it down */
+.flex {
+  display: flex;
 }
 
-img.snapshot {
-  width: 60vw;
-  height: auto;
-  display: block;
-  margin: 40px 0 0 0;
-  transform: rotate(-4deg);
-  border-radius: 8px;
+.flex-col {
+  flex-direction: column;
 }
 
-img.snapshot-2 {
-  width: 60vw;
-  height: auto;
-  display: block;
-  margin: -39vw 0 0 0;
-  transform: rotate(2deg);
-  border-radius: 8px;
+.items-center {
+  align-items: center;
 }
 
-img {
-  user-select: none;
+.justify-center {
+  justify-content: center;
+}
+
+.align-self-stretch {
+  align-self: stretch;
 }

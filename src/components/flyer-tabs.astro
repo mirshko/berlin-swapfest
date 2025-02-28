@@ -1,16 +1,137 @@
-<div class="tabs">
+---
+import tear from "../assets/tear.png";
+---
+
+<div class="tabs mt-0">
   {
-    Array.from({ length: 12 }).map(() => (
-      <div class="tab" data-tab-button>
-        BERLIN SWAPFEST
-        <br />
-        Dec 6th @ c-base
+    Array.from({ length: 16 }).map((_, idx) => (
+      <div
+        class="tab"
+        data-tab-button
+        data-breakpoint={idx + 1 > 8 ? "lg" : idx + 1 > 6 ? "md" : "sm"}
+      >
+        <span class="tab-inner">
+          <span class="tab-text">
+            <span>BERLIN SWAPFEST</span>
+            <span>April 19th @ c-base</span>
+          </span>
+        </span>
       </div>
     ))
   }
+
+  <img src={tear.src} alt="tear" class="tear" />
 </div>
 
+<style>
+  /* RIP OFF TABS */
+
+  .tabs {
+    --cols: 6;
+    display: grid;
+    grid-template-columns: repeat(
+      var(--cols),
+      minmax(0, calc(100vw / var(--cols)))
+    );
+    justify-content: center;
+    margin-bottom: 0;
+    padding: 0;
+    width: 100%;
+    position: relative;
+  }
+
+  @media (min-width: 48rem) {
+    .tabs {
+      --cols: 8;
+    }
+  }
+
+  @media (min-width: 80rem) {
+    .tabs {
+      --cols: 16;
+    }
+  }
+
+  .tab {
+    background: white;
+    border-left: 1px solid transparent;
+    /* border-top: 1px dashed #000; */
+    border-right: 1px dashed #000;
+    border-bottom: 1px dashed #000;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+    transition:
+      transform 1s,
+      opacity 1s;
+    margin: 0;
+    position: relative;
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tab:first-child {
+    border-left: 1px dashed #000;
+  }
+
+  .tab[data-tab-trashed] {
+    pointer-events: none;
+  }
+
+  .tab[data-tab-trashed] + .tab {
+    border-left: 1px dashed #000;
+  }
+
+  .tab[data-breakpoint="sm"] {
+    display: flex;
+  }
+
+  .tab[data-breakpoint="md"],
+  .tab[data-breakpoint="lg"] {
+    display: none;
+  }
+
+  @media (min-width: 48rem) {
+    .tab[data-breakpoint="md"] {
+      display: flex;
+    }
+  }
+
+  @media (min-width: 80rem) {
+    .tab[data-breakpoint="lg"] {
+      display: flex;
+    }
+  }
+
+  .tear {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    z-index: -1;
+    object-fit: contain;
+  }
+
+  .tab-inner {
+    width: 50px;
+    height: 168px;
+  }
+
+  .tab-text {
+    transform: rotate(90deg);
+    text-align: center;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+  }
+</style>
+
 <script>
+  import { animate } from "motion";
+
+  import { DESCRIPTION, TITLE } from "../constants/seo";
+
   const buttons = document.querySelectorAll("[data-tab-button]");
 
   // Add event listeners to fire confetti when a button is clicked.
@@ -19,24 +140,31 @@
   });
 
   function tearOff(tab: Element) {
-    // Trigger the animation by adding a class instead of directly applying styles
-    tab.classList.add("trashed");
+    animate(tab, { opacity: 0, y: 168 }, { ease: "easeIn", duration: 0.25 });
 
-    setTimeout(() => {
-      // Optionally, you could remove the tab completely after a delay, or leave it as is
-      // tab.remove(); // Uncomment if you want to remove it entirely after it's gone off the screen
-    }, 1000); // Wait for the animation to complete before taking further action
+    tab.setAttribute("data-tab-trashed", "");
 
-    downloadICS();
+    // downloadICS();
   }
 
   function downloadICS() {
-    const icsContent = `BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nSUMMARY:Berlin Swapfest\nDTSTART:20241206T120000Z\nDTEND:20241206T180000Z\nLOCATION:c-base, Berlin\nDESCRIPTION:Come to Berlin Swapfest!\nEND:VEVENT\nEND:VCALENDAR`;
+    const icsContent = [
+      `BEGIN:VCALENDAR`,
+      `VERSION:2.0`,
+      `BEGIN:VEVENT`,
+      `SUMMARY:${TITLE}`,
+      `DTSTART;TZID=Europe/Berlin:${"20250419T120000"}`,
+      `DTEND;TZID=Europe/Berlin:${"20250419T180000"}`,
+      `LOCATION:${"Rungestraße 20, Berlin, 10179, Germany"}`,
+      `DESCRIPTION:${DESCRIPTION}`,
+      `END:VEVENT`,
+      `END:VCALENDAR`,
+    ].join("\n");
 
     const blob = new Blob([icsContent], { type: "text/calendar" });
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
-    link.download = "Berlin_Swapfest.ics";
+    link.download = "berlin-swapfest-april-19-2025.ics";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
