@@ -26,9 +26,13 @@ const eventStructuredData: WithContext<Event> = {
       addressCountry: "DE",
     },
   },
-  description:
-    "Berlin Swapfest is a place for people to buy, sell, and swap electronics, computer equipment, and tools.",
+  description: SEO.DESCRIPTION,
   organizer: [
+    {
+      "@type": "Person",
+      name: "mirshko",
+      url: "https://www.reiner.systems",
+    },
     {
       "@type": "Organization",
       name: "c-base",
