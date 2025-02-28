@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Berlin Swapfest @ c-base</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caprasimo&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-	<link rel="icon" href="favicon.png" type="image/x-icon">
-</head>
-<body>
+---
+import Layout from "../layouts/layout.astro";
+---
 
-	<img class="snapshot" src="cbase-2.jpg" alt="A black and white photo of c-base">
+<Layout>
+    <img class="snapshot" src="cbase-2.jpg" alt="A black and white photo of c-base">
 	<img class="snapshot-2" src="cbase.jpg" alt="A black and white photo of c-base">
 
     <h1>
@@ -44,19 +35,19 @@
 	</div>
 
     <div>
-        <p>Berlin’s long-time hacker space c-base, in conjunction with &lt;ORG NAME&gt;, is hosting a Swapfest at their space in Kreuzberg quarterly. This will be a place to buy, sell, and swap electronics, computer equipment, and tools.</p>
-        <p>In tune with the spirit of right-to-repair as well as re-use; the goal of Berlin Swapfest is for people to bring electronics, equipment, and tools they no longer use, but want to bring to a good home. If you’ve been trying to find the perfect equipment for your homelab, this should be the place for you.</p>
-        <p>Time-permitting there will be a show-and-tell for vendors to be able to talk about an item they are looking to part with and talk about what they’ve used it for and any fond memories they have and what they’d hope for someone to gain from purchasing it.</p>
+        <p>Berlin's long-time hacker space c-base, in conjunction with &lt;ORG NAME&gt;, is hosting a Swapfest at their space in Kreuzberg quarterly. This will be a place to buy, sell, and swap electronics, computer equipment, and tools.</p>
+        <p>In tune with the spirit of right-to-repair as well as re-use; the goal of Berlin Swapfest is for people to bring electronics, equipment, and tools they no longer use, but want to bring to a good home. If you've been trying to find the perfect equipment for your homelab, this should be the place for you.</p>
+        <p>Time-permitting there will be a show-and-tell for vendors to be able to talk about an item they are looking to part with and talk about what they've used it for and any fond memories they have and what they'd hope for someone to gain from purchasing it.</p>
     </div>
     
     <h1><span class="letter-1">F</span><span class="letter-2">A</span><span class="letter-3">Q</span></h1>
     
     <h2>How much does it cost to sell?</h2>
     <div>
-        <p>Being a seller will always be free. Depending on the size of the item you’re bringing you may be asked for a deposit to handle disposal of your items should you not bring it back home with you.</p>
+        <p>Being a seller will always be free. Depending on the size of the item you're bringing you may be asked for a deposit to handle disposal of your items should you not bring it back home with you.</p>
         <p>As an example:</p>
-        <p>You’ve brought a 19” server rack to sell and no one bought it and you’re unable to bring it home, the deposit will be used to properly dispose of it.</p>
-        <p>However, we highly encourage you to only bring items you’re comfortable bringing back home with you should it not sell.</p>
+        <p>You've brought a 19" server rack to sell and no one bought it and you're unable to bring it home, the deposit will be used to properly dispose of it.</p>
+        <p>However, we highly encourage you to only bring items you're comfortable bringing back home with you should it not sell.</p>
     </div>
     
     <h2 class="tilt-left">How large is the space?</h2>
@@ -102,7 +93,4 @@ function downloadICS() {
 			document.body.removeChild(link);
 		}
 	</script>
-
-
-</body>
-</html>
+</Layout>

@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@fontsource/caprasimo':
+        specifier: ^5.1.1
+        version: 5.1.1
       astro:
         specifier: ^5.4.0
         version: 5.4.0(rollup@4.34.8)(typescript@5.7.3)
@@ -200,6 +203,9 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+
+  '@fontsource/caprasimo@5.1.1':
+    resolution: {integrity: sha512-LqLLeJU9IvMKAd0eariTRBQ3hY6oi5k5lWxVN9Rm+5A1YoeUPsOssnB0NLntGTApys8gLXRckmIHDktpn5NKKg==}
 
   '@img/sharp-darwin-arm64@0.33.5':
     resolution: {integrity: sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ==}
@@ -1584,6 +1590,8 @@ snapshots:
 
   '@esbuild/win32-x64@0.25.0':
     optional: true
+
+  '@fontsource/caprasimo@5.1.1': {}
 
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:

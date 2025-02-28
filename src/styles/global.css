@@ -1,11 +1,15 @@
+:root {
+  --header-font: "Caprasimo", system-ui;
+  --body-font: "Courier New", Courier, monospace;
+}
+
 body {
-  font-family: "Caprasimo", sans-serif;
+  font-family: var(--header-font);
   color: #000;
   margin: 0;
   padding: 0;
   line-height: 1.6;
   text-align: center;
-  font-family: "Caprasimo", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -141,7 +145,7 @@ p {
   font-size: 24px;
   width: 80%;
   margin: 0 auto;
-  font-family: "Courier New", Courier, monospace;
+  font-family: var(--body-font);
   margin-bottom: 20px;
   font-weight: bold;
 }

@@ -1,0 +1,23 @@
+---
+import "../styles/global.css";
+import "@fontsource/caprasimo";
+import caprasimoWoff2 from "@fontsource/caprasimo/files/caprasimo-latin-400-normal.woff2?url";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Berlin Swapfest @ c-base</title>
+    <link rel="icon" href="favicon.png" type="image/x-icon" />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href={caprasimoWoff2}
+      crossorigin="anonymous"
+    />
+  </head>
+  <body><slot /></body>
+</html>
