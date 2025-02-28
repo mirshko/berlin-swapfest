@@ -2,6 +2,8 @@
 import "../styles/global.css";
 import "@fontsource/caprasimo";
 import caprasimoWoff2 from "@fontsource/caprasimo/files/caprasimo-latin-400-normal.woff2?url";
+
+import { SEO } from "../constants/seo";
 ---
 
 <!doctype html>
@@ -9,7 +11,8 @@ import caprasimoWoff2 from "@fontsource/caprasimo/files/caprasimo-latin-400-norm
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Berlin Swapfest @ c-base</title>
+    <title>{SEO.TITLE}</title>
+    <meta name="description" content={SEO.DESCRIPTION} />
     <link rel="icon" href="favicon.png" type="image/x-icon" />
     <link
       rel="preload"
