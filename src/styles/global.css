@@ -14,7 +14,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url("/bg.png");
+  background-image: url("../assets/bg.png");
 }
 
 ::selection {
