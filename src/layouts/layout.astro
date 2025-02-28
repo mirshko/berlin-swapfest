@@ -1,9 +1,10 @@
 ---
-import "../styles/global.css";
 import "@fontsource/caprasimo";
 import caprasimoWoff2 from "@fontsource/caprasimo/files/caprasimo-latin-400-normal.woff2?url";
+import "../styles/global.css";
 
 import * as SEO from "../constants/seo";
+import Fathom from "../components/fathom.astro";
 ---
 
 <!doctype html>
@@ -21,6 +22,7 @@ import * as SEO from "../constants/seo";
       href={caprasimoWoff2}
       crossorigin="anonymous"
     />
+    <Fathom />
   </head>
   <body><slot /></body>
 </html>
