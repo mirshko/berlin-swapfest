@@ -1,4 +1,6 @@
 ---
+import { FATHOM_SITE } from "astro:env/client"
+
 export type Props = {
  	enabled?: boolean
 	site?: string
@@ -13,7 +15,7 @@ export type Props = {
 
 const {
 	enabled = import.meta.env.PROD,
-	site = import.meta.env.FATHOM_SITE,
+	site = FATHOM_SITE,
 	honorDnt = false,
 	auto = true,
 	canonical = true,
