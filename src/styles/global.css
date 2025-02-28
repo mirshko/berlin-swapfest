@@ -223,3 +223,7 @@ img.snapshot-2 {
   transform: rotate(2deg);
   border-radius: 8px;
 }
+
+img {
+  user-select: none;
+}
