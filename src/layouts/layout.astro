@@ -1,10 +1,41 @@
 ---
 import "@fontsource/caprasimo";
 import caprasimoWoff2 from "@fontsource/caprasimo/files/caprasimo-latin-400-normal.woff2?url";
+import type { Event, WithContext } from "schema-dts";
+import Fathom from "../components/fathom.astro";
+import * as SEO from "../constants/seo";
 import "../styles/global.css";
 
-import * as SEO from "../constants/seo";
-import Fathom from "../components/fathom.astro";
+const eventStructuredData: WithContext<Event> = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  name: "Berlin Swapfest",
+  startDate: "2025-04-19T12:00-01:00",
+  endDate: "2025-04-19T18:00-01:00",
+  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+  eventStatus: "https://schema.org/EventScheduled",
+  location: {
+    "@type": "Place",
+    name: "c-base",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Rungestraße 20",
+      addressLocality: "Berlin",
+      postalCode: "10179",
+      addressRegion: "Berlin-Brandenburg",
+      addressCountry: "DE",
+    },
+  },
+  description:
+    "Berlin Swapfest is a place for people to buy, sell, and swap electronics, computer equipment, and tools.",
+  organizer: [
+    {
+      "@type": "Organization",
+      name: "c-base",
+      url: "https://c-base.org",
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -14,7 +45,18 @@ import Fathom from "../components/fathom.astro";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{SEO.TITLE}</title>
     <meta name="description" content={SEO.DESCRIPTION} />
+    <meta property="og:title" content={SEO.TITLE} />
+    <meta property="og:description" content={SEO.DESCRIPTION} />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://www.swapfest.berlin/og-image.png"
+    />
+    <meta property="og:image:type" content="image/png" />
     <link rel="icon" href="favicon.png" type="image/x-icon" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="627" />
+    <meta property="og:image:alt" content="Berlin Swapfest at c-base" />
     <link
       rel="preload"
       as="font"
@@ -23,6 +65,10 @@ import Fathom from "../components/fathom.astro";
       crossorigin="anonymous"
     />
     <Fathom />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(eventStructuredData)}
+    />
   </head>
   <body><slot /></body>
 </html>
