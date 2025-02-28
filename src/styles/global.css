@@ -122,13 +122,18 @@ h2 {
   padding: 0 2vw;
   margin: 0;
   border-radius: 2vw;
-  transform: rotate(-2deg);
 }
 
-h2.tilt-left {
-  transform: rotate(2deg);
+.tilt-right {
+  transform: rotate(-2deg);
+  transform-origin: center;
   position: relative;
-  /* top: 15px; */
+}
+
+.tilt-left {
+  transform: rotate(2deg);
+  transform-origin: center;
+  position: relative;
 }
 
 h3 {
@@ -142,19 +147,21 @@ div {
 }
 
 p {
-  font-size: 24px;
-  width: 80%;
+  font-size: clamp(1.125rem, 0.875rem + 0.5208vw, 1.5rem);
+  width: 100%;
+  max-width: 64rem;
   margin: 0 auto;
   font-family: var(--body-font);
   margin-bottom: 20px;
   font-weight: bold;
 }
 
-@media screen and (max-width: 600px) {
-  p {
-    font-size: 16px;
-  }
+.register-link {
+  font-size: 5vw;
+  margin: 40px auto;
+  text-align: center;
 }
+
 
 a {
   color: #000;

@@ -1,0 +1,44 @@
+<div class="tabs">
+  {
+    Array.from({ length: 12 }).map(() => (
+      <div class="tab" data-tab-button>
+        BERLIN SWAPFEST
+        <br />
+        Dec 6th @ c-base
+      </div>
+    ))
+  }
+</div>
+
+<script>
+  const buttons = document.querySelectorAll("[data-tab-button]");
+
+  // Add event listeners to fire confetti when a button is clicked.
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => tearOff(button));
+  });
+
+  function tearOff(tab: Element) {
+    // Trigger the animation by adding a class instead of directly applying styles
+    tab.classList.add("trashed");
+
+    setTimeout(() => {
+      // Optionally, you could remove the tab completely after a delay, or leave it as is
+      // tab.remove(); // Uncomment if you want to remove it entirely after it's gone off the screen
+    }, 1000); // Wait for the animation to complete before taking further action
+
+    downloadICS();
+  }
+
+  function downloadICS() {
+    const icsContent = `BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nSUMMARY:Berlin Swapfest\nDTSTART:20241206T120000Z\nDTEND:20241206T180000Z\nLOCATION:c-base, Berlin\nDESCRIPTION:Come to Berlin Swapfest!\nEND:VEVENT\nEND:VCALENDAR`;
+
+    const blob = new Blob([icsContent], { type: "text/calendar" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "Berlin_Swapfest.ics";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+</script>

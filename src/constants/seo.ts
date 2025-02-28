@@ -1,4 +1,3 @@
-export const SEO = {
-  TITLE: "Berlin Swapfest @ c-base",
-  DESCRIPTION: "Come to Berlin Swapfest!",
-} as const;
+export const TITLE = "Berlin Swapfest @ c-base";
+
+export const DESCRIPTION = "Come to Berlin Swapfest!";
