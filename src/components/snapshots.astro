@@ -1,11 +1,22 @@
-<img
+---
+import { Image } from "astro:assets";
+
+import cbase from "../assets/cbase.jpg";
+import cbase2 from "../assets/cbase-2.jpg";
+---
+
+<Image
+  src={cbase2}
   class="snapshot"
-  src="cbase-2.jpg"
   alt="A group of people gathered around a table on c-base"
+  loading="eager"
+  priority
 />
 
-<img
+<Image
+  src={cbase}
   class="snapshot-2"
-  src="cbase.jpg"
   alt="An image of the interior of c-base"
+  loading="eager"
+  priority
 />
