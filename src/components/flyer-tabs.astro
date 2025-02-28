@@ -1,5 +1,5 @@
 ---
-import tear from "../assets/tear-no-shadow.png";
+import tear from "../assets/tear-outline.png";
 ---
 
 <div class="tabs mt-0">
@@ -53,11 +53,14 @@ import tear from "../assets/tear-no-shadow.png";
   }
 
   .tab {
+    --border-style: solid;
+    --border-width: 1px;
+
     background: white;
-    border-left: 1px solid transparent;
-    /* border-top: 1px dashed #000; */
-    border-right: 1px dashed #000;
-    border-bottom: 1px dashed #000;
+    border-left: var(--border-width) var(--border-style) transparent;
+    /* border-top: var(--border-width) var(--border-style) #000; */
+    border-right: var(--border-width) var(--border-style) #000;
+    border-bottom: var(--border-width) var(--border-style) #000;
     padding: 10px;
     cursor: pointer;
     text-align: center;
@@ -73,15 +76,14 @@ import tear from "../assets/tear-no-shadow.png";
   }
 
   .tab:first-child {
-    border-left: 1px dashed #000;
+    border-left: var(--border-width) var(--border-style) #000;
   }
 
   .tab[data-tab-trashed] {
     pointer-events: none;
   }
-
   .tab[data-tab-trashed] + .tab {
-    border-left: 1px dashed #000;
+    border-left: var(--border-width) var(--border-style) #000;
   }
 
   .tab[data-breakpoint="sm"] {
@@ -105,14 +107,6 @@ import tear from "../assets/tear-no-shadow.png";
     }
   }
 
-  .tear {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    z-index: -1;
-    object-fit: contain;
-  }
-
   .tab-inner {
     width: 50px;
     height: 168px;
@@ -124,6 +118,14 @@ import tear from "../assets/tear-no-shadow.png";
     white-space: nowrap;
     display: flex;
     flex-direction: column;
+  }
+
+  .tear {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    z-index: -1;
+    object-fit: contain;
   }
 </style>
 
@@ -140,7 +142,7 @@ import tear from "../assets/tear-no-shadow.png";
   });
 
   function tearOff(tab: Element) {
-    animate(tab, { opacity: 0, y: 168 }, { ease: "easeIn", duration: 0.25 });
+    animate(tab, { opacity: 0, y: 168 }, { ease: "easeIn", duration: 0.3 });
 
     tab.setAttribute("data-tab-trashed", "");
 
