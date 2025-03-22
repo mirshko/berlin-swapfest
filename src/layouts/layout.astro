@@ -74,5 +74,7 @@ const eventStructuredData: WithContext<Event> = {
       set:html={JSON.stringify(eventStructuredData)}
     />
   </head>
-  <body class=""><slot /></body>
+  <body>
+    <slot />
+  </body>
 </html>
