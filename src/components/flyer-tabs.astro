@@ -130,7 +130,7 @@ import tear from "../assets/tear-outline.png";
 </style>
 
 <script>
-  import { animate } from "motion";
+  import { animate } from "animejs";
 
   import { DESCRIPTION, TITLE } from "../constants/seo";
 
@@ -142,7 +142,18 @@ import tear from "../assets/tear-outline.png";
   });
 
   function tearOff(tab: Element) {
-    animate(tab, { opacity: 0, y: 168 }, { ease: "easeIn", duration: 0.3 });
+    animate(tab, {
+      opacity: {
+        to: 0,
+        duration: 0.3,
+        ease: "inElastic",
+      },
+      y: {
+        to: 168,
+        ease: "inElastic",
+        duration: 0.3,
+      },
+    });
 
     tab.setAttribute("data-tab-trashed", "");
 
