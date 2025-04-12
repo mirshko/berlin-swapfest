@@ -4,7 +4,7 @@ import Snapshots from "../components/snapshots.astro";
 import Title from "../components/title.astro";
 import Layout from "../layouts/layout.astro";
 
-import { REGISTER_LINK, BLUESKY_LINK } from "../constants/links";
+import { REGISTER_LINK, BLUESKY_LINK, EMAIL_LINK } from "../constants/links";
 
 import { Image } from "astro:assets";
 import bg from "../assets/bg.png";
@@ -108,9 +108,14 @@ import bg from "../assets/bg.png";
     </div>
 
     <div class="mb-6">
+        <a href={EMAIL_LINK} target="_blank" rel="nofollow" class="text-decoration-none">
+          <span class="sr-only">Email Swapfest Team</span>
+          <span role="img" aria-label="">📧</span>
+        </a>
+
         <a href={BLUESKY_LINK} target="_blank" rel="nofollow" class="text-decoration-none">
             <span class="sr-only">Visit Bluesky Profile</span>
-            <span role="img" aria-label="emoji">🦋</span>
+            <span role="img" aria-label="">🦋</span>
         </a>
     </div>
 
