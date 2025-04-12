@@ -275,3 +275,7 @@ a:hover {
 .text-decoration-none {
     text-decoration: none;
 }
+
+.whitespace-nowrap {
+    white-space: nowrap;
+}
