@@ -3,4 +3,5 @@ export const REGISTER_LINK =
 
 export const BLUESKY_LINK = "https://bsky.app/profile/swapfest.berlin";
 
-export const EMAIL_LINK = "mailto:swapfest.berlin@proton.me";
+export const CONTACT_LINK =
+  "https://cryptpad.fr/form/#/2/form/view/FvacuuCM5hGIaUyfb16dtRXzyPKd+qtsW+Wo9FoUBck/";
