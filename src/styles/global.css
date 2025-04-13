@@ -54,7 +54,7 @@ a:hover {
 .hero {
     padding: 0;
     margin: 0;
-    padding-bottom: 100px;
+    padding-bottom: 6.25rem;
 }
 
 .hero-bg {
@@ -88,13 +88,13 @@ a:hover {
 
 .letter-2 {
     transform: rotate(3deg) scale(0.75);
-    margin-left: 8px;
-    margin-right: -10px;
+    margin-left: 0.5rem;
+    margin-right: -0.625rem;
 }
 
 .letter-3 {
     transform: rotate(-2deg) scale(1.05);
-    margin-right: 8px;
+    margin-right: 0.5rem;
 }
 
 .letter-4 {
@@ -103,7 +103,7 @@ a:hover {
 
 .letter-5 {
     transform: rotate(-3deg) scale(0.8);
-    margin-left: -8px;
+    margin-left: -0.5rem;
 }
 
 .letter-6 {
@@ -120,7 +120,7 @@ a:hover {
 
 .letter-9 {
     transform: rotate(-6deg) scale(0.8);
-    margin-right: -10px;
+    margin-right: -0.625rem;
 }
 
 .letter-10 {
@@ -133,7 +133,7 @@ a:hover {
 
 .letter-12 {
     transform: rotate(4deg) scale(0.85);
-    margin-right: -7px;
+    margin-right: -0.4375rem;
 }
 
 .letter-13 {
@@ -203,7 +203,15 @@ a:hover {
 }
 
 .mb-100 {
-    margin-bottom: 100px;
+    margin-bottom: 6.25rem;
+}
+
+.mb-50 {
+    margin-bottom: 3.125rem;
+}
+
+.pt-10 {
+    padding-top: 2.5rem;
 }
 
 .relative {

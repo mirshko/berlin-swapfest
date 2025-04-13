@@ -17,11 +17,9 @@ import bg from "../assets/bg.png";
 
 <Layout>
   <div
-    class="relative hero flex flex-col items-center justify-center align-self-stretch text-center"
+    class="relative hero flex flex-col items-center justify-center align-self-stretch text-center pt-10"
   >
     <Image src={bg} class="hero-bg" alt="" loading="eager" priority />
-
-    <Snapshots />
 
     <Title />
 
@@ -60,7 +58,7 @@ import bg from "../assets/bg.png";
       This is a place to swap electronics, computer equipment, and tools.
     </p>
 
-    <p class="mb-100">
+    <p class="mb-50">
       In tune with the spirit of right-to-repair as well as re-use; the goal of
       the Berlin Swapfest is for people to bring electronics, equipment, and
       tools they no longer use, but want to bring to a good home. If you've been
@@ -70,6 +68,10 @@ import bg from "../assets/bg.png";
         href="https://w1mx.mit.edu/flea-at-mit/">MIT Swapfest</a
       >
     </p>
+
+    <div class="mb-100">
+      <Snapshots />
+    </div>
 
     <h2 class="h1">
       <span class="letter-1">F</span><span class="letter-2">A</span><span
