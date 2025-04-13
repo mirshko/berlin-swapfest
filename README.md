@@ -10,6 +10,10 @@ Berlin Swapfest Microsite
 pnpm install
 
 pnpm run dev
+
+# make changes
+
+# open a pull request
 ```
 
 
