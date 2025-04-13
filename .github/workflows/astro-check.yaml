@@ -18,4 +18,4 @@ jobs:
           node-version: 20
           cache: "pnpm"
       - run: pnpm install --frozen-lockfile
-      - run: pnpm astro check
+      - run: pnpm astro check --minimumFailingSeverity hint
