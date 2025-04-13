@@ -4,7 +4,12 @@ import Snapshots from "../components/snapshots.astro";
 import Title from "../components/title.astro";
 import Layout from "../layouts/layout.astro";
 
-import { REGISTER_LINK, BLUESKY_LINK, CONTACT_LINK } from "../constants/links";
+import {
+  REGISTER_LINK,
+  BLUESKY_LINK,
+  CONTACT_LINK,
+  GITHUB_LINK,
+} from "../constants/links";
 
 import { Image } from "astro:assets";
 import bg from "../assets/bg.png";
@@ -61,7 +66,9 @@ import bg from "../assets/bg.png";
       tools they no longer use, but want to bring to a good home. If you've been
       trying to find the perfect equipment to build your home-lab or looking for
       new electronic components or tools, this should be the place for you.
-      Berlin Swapfest is inspired by the <a href="https://w1mx.mit.edu/flea-at-mit/">MIT Swapfest</a>
+      Berlin Swapfest is inspired by the <a
+        href="https://w1mx.mit.edu/flea-at-mit/">MIT Swapfest</a
+      >
     </p>
 
     <h2 class="h1">
@@ -74,14 +81,16 @@ import bg from "../assets/bg.png";
 
     <di class="mb-100">
       <p>
-        Yes, c-base will provide space and tables. Space will be
-        allocated based on registration information. If you forgot to register
-        as a provider of items, it may be possible to to get table-space if there
-        is room left - but people that registered have priority!
+        Yes, c-base will provide space and tables. Space will be allocated based
+        on registration information. If you forgot to register as a provider of
+        items, it may be possible to to get table-space if there is room left -
+        but people that registered have priority!
       </p>
     </di>
 
-    <h2 class="faq-header whitespace-nowrap tilt-right mb-6">How much to get a table?</h2>
+    <h2 class="faq-header whitespace-nowrap tilt-right mb-6">
+      How much to get a table?
+    </h2>
 
     <div class="mb-100">
       <p class="mb-6">
@@ -101,22 +110,33 @@ import bg from "../assets/bg.png";
     <div class="mb-100">
       <p>
         We have no requirements on how to exchange goods; if you choose to use
-        Cash, Cryptocurrency, PayPal, Electronics, Services, Knowledge, Beverages, etc.
-        it is entirely up to you. Any disputes must be taken up with the seller. 
-        Only in the case of a breach of c-base rules will a team member step in.
+        Cash, Cryptocurrency, PayPal, Electronics, Services, Knowledge,
+        Beverages, etc. it is entirely up to you. Any disputes must be taken up
+        with the seller. Only in the case of a breach of c-base rules will a
+        team member step in.
       </p>
     </div>
 
     <div class="mb-6">
-        <a href={CONTACT_LINK} target="_blank" rel="nofollow" class="text-decoration-none">
-          <span class="sr-only">Contact Swapfest Team</span>
-          <span role="img" aria-label="">📧</span>
-        </a>
+      <a
+        href={CONTACT_LINK}
+        target="_blank"
+        rel="nofollow"
+        class="text-decoration-none"
+      >
+        <span class="sr-only">Contact Swapfest Team</span>
+        <span role="img" aria-label="contact">📧</span>
+      </a>
 
-        <a href={BLUESKY_LINK} target="_blank" rel="nofollow" class="text-decoration-none">
-            <span class="sr-only">Visit Bluesky Profile</span>
-            <span role="img" aria-label="">🦋</span>
-        </a>
+      <a
+        href={BLUESKY_LINK}
+        target="_blank"
+        rel="nofollow"
+        class="text-decoration-none"
+      >
+        <span class="sr-only">Visit Bluesky Profile</span>
+        <span role="img" aria-label="bluesky">🦋</span>
+      </a>
     </div>
 
     <div class="mb-6">
@@ -130,6 +150,10 @@ import bg from "../assets/bg.png";
         Designed by <a href="https://www.brandonoxendine.com" target="_blank">
           Brandon Oxendine
         </a>
+      </p>
+
+      <p>
+        Source <a href={GITHUB_LINK} target="_blank"> on GitHub </a>
       </p>
     </div>
   </div>
