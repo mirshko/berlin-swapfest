@@ -1,4 +1,4 @@
-![Berlin Swapfest](https://github.com/mirshko/berlin-swapfest/raw/main/docs/header.png)
+![Berlin Swapfest](https://raw.githubusercontent.com/mirshko/berlin-swapfest/refs/heads/update-readme/docs/header.png)
 
 Berlin Swapfest Microsite
 
@@ -11,3 +11,5 @@ pnpm install
 
 pnpm run dev
 ```
+
+
