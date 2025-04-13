@@ -1,4 +1,4 @@
-![Berlin Swapfest](https://raw.githubusercontent.com/mirshko/berlin-swapfest/refs/heads/update-readme/docs/header.png)
+![Berlin Swapfest](https://raw.githubusercontent.com/mirshko/berlin-swapfest/refs/heads/main/docs/header.png)
 
 Berlin Swapfest Microsite
 
