@@ -1,1 +1,7 @@
 title.astro
+pnpm-lock.yaml
+node_modules
+dist
+.vscode
+.astro
+fathom.astro
