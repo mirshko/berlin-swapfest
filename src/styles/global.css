@@ -22,11 +22,11 @@ html {
 }
 
 a {
-  @apply text-black hover:bg-highlight underline;
+  @apply hover:bg-highlight text-black underline;
 }
 
 .h1 {
-  @apply text-center mt-5 leading-[1] tracking-[-0.03em] uppercase text-[15vw];
+  @apply mt-5 text-center text-[15vw] leading-[1] tracking-[-0.03em] uppercase;
 }
 
 .h1 span {
@@ -34,19 +34,19 @@ a {
 }
 
 .faq-header {
-  @apply text-[5vw] bg-black text-white px-[2vw] rounded-[2vw] whitespace-nowrap;
+  @apply rounded-[2vw] bg-black px-[2vw] text-[5vw] whitespace-nowrap text-white;
 }
 
 .register-link {
-  @apply text-[5vw] underline text-center;
+  @apply text-center text-[5vw] underline;
 }
 
 .tilt-right {
-  @apply -rotate-2 origin-center relative;
+  @apply relative origin-center -rotate-2;
 }
 
 .tilt-left {
-  @apply rotate-2 origin-center relative;
+  @apply relative origin-center rotate-2;
 }
 
 /* LETTERS */
