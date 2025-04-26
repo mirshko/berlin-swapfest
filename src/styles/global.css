@@ -8,7 +8,8 @@
 }
 
 html {
-  @apply leading-[1.6];
+  @apply leading-[1.6] antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 ::selection {
