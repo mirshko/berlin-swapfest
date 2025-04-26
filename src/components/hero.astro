@@ -13,21 +13,37 @@ import * as LOCATION from "../constants/location";
 
   <Title />
 
-  <p class="faq-header tilt-left">{format(EVENT_DATE, "MMMM do, yyyy")}</p>
-  <p class="faq-header tilt-right">at {LOCATION.NAME}</p>
+  <p aria-hidden="true" class="faq-header tilt-left">
+    {format(EVENT_DATE, "MMMM do, yyyy")}
+  </p>
+  <p aria-hidden="true" class="faq-header tilt-right">at {LOCATION.NAME}</p>
 
-  <p class="p">
+  <p class="sr-only">
+    {`${format(EVENT_DATE, "MMMM do, yyyy")} at ${LOCATION.NAME}`}
+  </p>
+
+  <p class="body">
     {`${LOCATION.STREET_ADDRESS}, ${LOCATION.ADDRESS_ADDITIONAL}`}
   </p>
 
-  <h3 class="h1 mb-10">
-    <span class="letter-2">1</span><span class="letter-3">2</span>:<span
-      class="letter-5">0</span
-    ><span class="letter-6">0</span> – <span class="letter-5">1</span><span
+  <h3 class="display mb-10">
+    <span aria-hidden="true" class="letter-2">1</span><span
+      aria-hidden="true"
+      class="letter-3">2</span
+    ><span aria-hidden="true">:</span><span aria-hidden="true" class="letter-5"
+      >0</span
+    ><span aria-hidden="true" class="letter-6">0</span>{" "}<span
+      aria-hidden="true">&ndash;</span
+    >{" "}<span aria-hidden="true" class="letter-5">1</span><span
+      aria-hidden="true"
       class="letter-8">8</span
-    ><span class="letter-9">:</span><span class="letter-10">0</span><span
+    ><span aria-hidden="true" class="letter-9"
+      ><span aria-hidden="true">:</span></span
+    ><span aria-hidden="true" class="letter-10">0</span><span
+      aria-hidden="true"
       class="letter-11">0</span
     >
+    <span class="sr-only">12:00 to 18:00</span>
   </h3>
 
   <a

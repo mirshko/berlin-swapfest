@@ -1,6 +1,8 @@
 ---
-import "@fontsource/caprasimo";
+import "@fontsource/caprasimo/latin-400.css";
 import caprasimoWoff2 from "@fontsource/caprasimo/files/caprasimo-latin-400-normal.woff2?url";
+import "@fontsource/courier-prime/latin-700.css";
+import courierPrimeWoff2 from "@fontsource/courier-prime/files/courier-prime-latin-700-normal.woff2?url";
 import { format } from "date-fns";
 import type { Event, WithContext } from "schema-dts";
 import Fathom from "../components/fathom.astro";
@@ -69,6 +71,13 @@ const eventStructuredData: WithContext<Event> = {
       as="font"
       type="font/woff2"
       href={caprasimoWoff2}
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href={courierPrimeWoff2}
       crossorigin="anonymous"
     />
     <Fathom />

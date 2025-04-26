@@ -1,11 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Caprasimo", system-ui;
-  --font-mono: "Courier New", Courier, monospace;
+  --font-sans: "Caprasimo", serif;
+  --font-mono: "Courier Prime", "Courier New", Courier, monospace;
 
   --color-highlight: yellow;
 }
+
+/* BASE */
 
 html {
   @apply leading-[1.6] antialiased;
@@ -17,7 +19,11 @@ html {
   color: var(--color-black);
 }
 
-.p {
+.display {
+  @apply text-center text-[15vw] leading-[1] tracking-[-0.03em] uppercase *:inline-block;
+}
+
+.body {
   @apply font-mono font-bold;
   font-size: clamp(1.125rem, 0.875rem + 0.5208vw, 1.5rem);
 }
@@ -26,13 +32,7 @@ a {
   @apply hover:bg-highlight text-black underline;
 }
 
-.h1 {
-  @apply mt-5 text-center text-[15vw] leading-[1] tracking-[-0.03em] uppercase;
-}
-
-.h1 span {
-  display: inline-block;
-}
+/* SPECIFICS */
 
 .faq-header {
   @apply rounded-[2vw] bg-black px-[2vw] text-[5vw] whitespace-nowrap text-white;
@@ -41,6 +41,8 @@ a {
 .register-link {
   @apply text-center text-[5vw] underline;
 }
+
+/* TILT */
 
 .tilt-right {
   @apply relative origin-center -rotate-2;
