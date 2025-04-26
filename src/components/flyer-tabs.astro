@@ -5,9 +5,9 @@ import { Image } from "astro:assets";
 import { format } from "date-fns";
 import tear from "../assets/tear-outline.png";
 import { EVENT_DATE } from "../constants/date";
-import { NAME } from "../constants/location";
+import * as LOCATION from "../constants/location";
 
-const TAB_DATE = `${format(EVENT_DATE, "MMMM do")} @ ${NAME}`;
+const TAB_DATE = `${format(EVENT_DATE, "MMMM do")} @ ${LOCATION.NAME}`;
 ---
 
 <div class="tabs">
@@ -139,7 +139,8 @@ const TAB_DATE = `${format(EVENT_DATE, "MMMM do")} @ ${NAME}`;
 
 <script>
   import { animate } from "animejs";
-  import { ICS_DT_PREFIX, ICS_LOCATION } from "../constants/ics";
+  import { EVENT_DATE } from "../constants/date";
+  import * as LOCATION from "../constants/location";
   import { DESCRIPTION, TITLE } from "../constants/seo";
 
   const buttons =
@@ -169,7 +170,25 @@ const TAB_DATE = `${format(EVENT_DATE, "MMMM do")} @ ${NAME}`;
     downloadICS();
   }
 
+  const ICS_LOCATION = `${LOCATION.STREET_ADDRESS}, ${LOCATION.ADDRESS_LOCALITY}, ${LOCATION.POSTAL_CODE}, ${LOCATION.ADRESS_COUNTRY_FULL}`;
+
+  function format(date: Date) {
+    // Get year, month, and day
+    const year = date.getFullYear();
+
+    // getMonth() returns 0-11, so add 1 and pad with leading zero if needed
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+
+    // getDate() returns the day of month (1-31), pad with leading zero if needed
+    const day = String(date.getDate()).padStart(2, "0");
+
+    // Combine into yyyyMMdd format
+    return `${year}${month}${day}`;
+  }
+
   function downloadICS() {
+    const ICS_DT_PREFIX = format(new Date(EVENT_DATE));
+
     const icsContent = [
       `BEGIN:VCALENDAR`,
       `VERSION:2.0`,
