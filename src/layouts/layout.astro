@@ -1,10 +1,7 @@
 ---
 /* eslint-disable astro/no-set-html-directive */
 
-import "@fontsource/caprasimo/latin-400.css";
-import caprasimoWoff2 from "@fontsource/caprasimo/files/caprasimo-latin-400-normal.woff2?url";
-import "@fontsource/courier-prime/latin-700.css";
-import courierPrimeWoff2 from "@fontsource/courier-prime/files/courier-prime-latin-700-normal.woff2?url";
+import { Font } from "astro:assets";
 import { format } from "date-fns";
 import type { Event, WithContext } from "schema-dts";
 import Fathom from "../components/fathom.astro";
@@ -68,20 +65,8 @@ const eventStructuredData: WithContext<Event> = {
     <meta content="1200" property="og:image:width" />
     <meta content="627" property="og:image:height" />
     <meta content="Berlin Swapfest at c-base" property="og:image:alt" />
-    <link
-      as="font"
-      crossorigin="anonymous"
-      href={caprasimoWoff2}
-      rel="preload"
-      type="font/woff2"
-    />
-    <link
-      as="font"
-      crossorigin="anonymous"
-      href={courierPrimeWoff2}
-      rel="preload"
-      type="font/woff2"
-    />
+    <Font cssVariable="--font-caprasimo" preload />
+    <Font cssVariable="--font-courier-prime" preload />
     <Fathom />
     <script
       is:inline

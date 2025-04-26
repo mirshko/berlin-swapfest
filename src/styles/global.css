@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
-@theme {
-  --font-sans: "Caprasimo", serif;
-  --font-mono: "Courier Prime", "Courier New", Courier, monospace;
+@theme inline {
+  --font-sans: var(--font-caprasimo);
+  --font-mono: var(--font-courier-prime);
 
   --color-highlight: yellow;
 }
