@@ -3,6 +3,9 @@ export const REGISTER_LINK =
 
 export const BLUESKY_LINK = "https://bsky.app/profile/swapfest.berlin";
 
+export const MATRIX_LINK =
+  "https://matrix.to/#/!wZyJLpRBZamVkKXskN:matrix.org?via=matrix.org";
+
 export const CONTACT_LINK =
   "https://cryptpad.fr/form/#/2/form/view/FvacuuCM5hGIaUyfb16dtRXzyPKd+qtsW+Wo9FoUBck/";
 

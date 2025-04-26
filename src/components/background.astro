@@ -1,0 +1,12 @@
+---
+import { Image } from "astro:assets";
+import bg from "../assets/bg.png";
+---
+
+<Image
+  src={bg}
+  class="absolute inset-0 w-full -z-1 h-full object-cover"
+  alt=""
+  loading="eager"
+  priority
+/>

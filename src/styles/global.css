@@ -1,86 +1,55 @@
-:root {
-  --header-font: "Caprasimo", system-ui;
-  --body-font: "Courier New", Courier, monospace;
-  --highlight-color: yellow;
-  --black: #000;
-  --white: #fff;
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Caprasimo", system-ui;
+  --font-mono: "Courier New", Courier, monospace;
+
+  --color-highlight: yellow;
 }
 
 html {
-  font-family: var(--header-font);
-  line-height: 1.6;
-  color: var(--black);
-}
-
-body {
-  /* -webkit-font-smoothing: antialiased; */
-  /* -moz-osx-font-smoothing: grayscale; */
-  margin: 0;
-  padding: 0;
+  @apply leading-[1.6];
 }
 
 ::selection {
-  background-color: var(--highlight-color);
-  color: var(--black);
+  background-color: var(--color-highlight);
+  color: var(--color-black)
 }
 
-h1,
-h2,
-h3 {
-  color: var(--black);
-  font-weight: normal;
-  margin: 0;
-}
-
-p {
+.p {
+  @apply font-mono font-bold mx-auto w-full max-w-[64rem];
   font-size: clamp(1.125rem, 0.875rem + 0.5208vw, 1.5rem);
-  width: 100%;
-  max-width: 64rem;
-  margin: 0;
-  font-family: var(--body-font);
-  font-weight: bold;
 }
 
 a {
-  color: var(--black);
+  @apply text-black hover:bg-highlight underline;
 }
-
-a:hover {
-  background-color: var(--highlight-color);
-}
-
-/* Hero */
-
-.hero {
-  padding: 0;
-  margin: 0;
-  padding-bottom: 6.25rem;
-}
-
-.hero-bg {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* HEADLINE STYLING */
 
 .h1 {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 15vw;
-  text-transform: uppercase;
-  letter-spacing: -0.03em;
-  line-height: 100%;
-  margin-bottom: 0;
+  @apply text-center mt-5 leading-[1] tracking-[-0.03em] uppercase text-[15vw];
 }
 
 .h1 span {
   display: inline-block;
 }
+
+.faq-header {
+  @apply text-[5vw] bg-black text-white px-[2vw] rounded-[2vw] whitespace-nowrap; 
+}
+
+.register-link {
+  @apply text-[5vw] underline text-center;
+}
+
+.tilt-right {
+  @apply -rotate-2 origin-center relative;
+}
+
+.tilt-left {
+  @apply rotate-2 origin-center relative;
+}
+
+/* LETTERS */
 
 .letter-1 {
   transform: rotate(-5deg) scale(1.2);
@@ -172,118 +141,3 @@ a:hover {
   transform: rotate(-4deg) scale(1.07);
 }
 
-.faq-header {
-  font-size: 5vw;
-  background-color: var(--black);
-  color: var(--white);
-  padding: 0 2vw;
-  border-radius: 2vw;
-}
-
-.tilt-right {
-  transform: rotate(-2deg);
-  transform-origin: center;
-  position: relative;
-}
-
-.tilt-left {
-  transform: rotate(2deg);
-  transform-origin: center;
-  position: relative;
-}
-
-.register-link {
-  font-size: 5vw;
-}
-
-/* Utils */
-
-.mb-6 {
-  margin-bottom: 1.5rem;
-}
-
-.mb-100 {
-  margin-bottom: 6.25rem;
-}
-
-.mb-50 {
-  margin-bottom: 3.125rem;
-}
-
-.pt-10 {
-  padding-top: 2.5rem;
-}
-
-.relative {
-  position: relative;
-}
-
-.mt-0 {
-  margin-top: 0;
-}
-
-.mt-20 {
-  margin-top: 5rem;
-}
-
-.mt-10 {
-  margin-top: 2.5rem;
-}
-
-.mb-10 {
-  margin-bottom: 2.5rem;
-}
-
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.mx-5 {
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.flex {
-  display: flex;
-}
-
-.flex-col {
-  flex-direction: column;
-}
-
-.items-center {
-  align-items: center;
-}
-
-.justify-center {
-  justify-content: center;
-}
-
-.align-self-stretch {
-  align-self: stretch;
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-.text-decoration-none {
-  text-decoration: none;
-}
-
-.whitespace-nowrap {
-  white-space: nowrap;
-}

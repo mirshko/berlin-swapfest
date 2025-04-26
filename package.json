@@ -14,8 +14,11 @@
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@fontsource/caprasimo": "^5.1.1",
+    "@tailwindcss/vite": "^4.1.4",
     "animejs": "^4.0.1",
     "astro": "^5.5.4",
+    "date-fns": "^4.1.0",
+    "tailwindcss": "^4.1.4",
     "typescript": "^5.8.3"
   },
   "devDependencies": {
