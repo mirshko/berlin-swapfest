@@ -10,11 +10,16 @@ const TAB_DATE = `${format(EVENT_DATE, "MMMM do")} @ ${NAME}`;
 
 <div class="tabs">
   {
-    new Array(16).map((_, idx) => {
-      const breakpoint = idx + 1 > 8 ? "lg" : idx + 1 > 6 ? "md" : "sm";
+    Array.from({ length: 16 }).map((_, index) => {
+      let breakpoint = "sm";
+      if (index + 1 > 8) {
+        breakpoint = "lg";
+      } else if (index + 1 > 6) {
+        breakpoint = "md";
+      }
 
       return (
-        <div class="tab" data-tab-button data-breakpoint={breakpoint}>
+        <div class="tab" data-breakpoint={breakpoint} data-tab-button>
           <span class="tab-inner">
             <span class="tab-text">
               <span>BERLIN SWAPFEST</span>
@@ -28,9 +33,9 @@ const TAB_DATE = `${format(EVENT_DATE, "MMMM do")} @ ${NAME}`;
 
   <Image
     alt=""
-    src={tear}
     class="absolute inset-0 -z-1 w-full object-contain select-none"
     draggable={false}
+    src={tear}
   />
 </div>
 
@@ -135,14 +140,15 @@ const TAB_DATE = `${format(EVENT_DATE, "MMMM do")} @ ${NAME}`;
   import { ICS_DT_PREFIX, ICS_LOCATION } from "../constants/ics";
   import { DESCRIPTION, TITLE } from "../constants/seo";
 
-  const buttons = document.querySelectorAll("[data-tab-button]");
+  const buttons =
+    document.querySelectorAll<HTMLButtonElement>("[data-tab-button]");
 
   // Add event listeners to fire confetti when a button is clicked.
-  buttons.forEach((button) => {
+  for (const button of buttons) {
     button.addEventListener("click", () => tearOff(button));
-  });
+  }
 
-  function tearOff(tab: Element) {
+  function tearOff(tab: HTMLButtonElement) {
     animate(tab, {
       opacity: {
         to: 0,
@@ -156,7 +162,7 @@ const TAB_DATE = `${format(EVENT_DATE, "MMMM do")} @ ${NAME}`;
       },
     });
 
-    tab.setAttribute("data-tab-trashed", "");
+    tab.dataset.tabTrashed = "";
 
     downloadICS();
   }
@@ -179,8 +185,8 @@ const TAB_DATE = `${format(EVENT_DATE, "MMMM do")} @ ${NAME}`;
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
     link.download = `BERLIN_SWAPFEST_${ICS_DT_PREFIX}.ics`;
-    document.body.appendChild(link);
+    document.body.append(link);
     link.click();
-    document.body.removeChild(link);
+    link.remove();
   }
 </script>

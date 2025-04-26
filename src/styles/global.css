@@ -24,7 +24,7 @@ html {
 }
 
 .body {
-  @apply font-mono font-bold leading-normal;
+  @apply font-mono leading-normal font-bold;
   font-size: clamp(1.125rem, 0.875rem + 0.5208vw, 1.5rem);
 }
 
