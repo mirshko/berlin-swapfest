@@ -1,0 +1,43 @@
+---
+import { format } from "date-fns";
+import Background from "../components/background.astro";
+import FlyerTabs from "../components/flyer-tabs.astro";
+import Title from "../components/title.astro";
+import { EVENT_DATE } from "../constants/date";
+import * as LINKS from "../constants/links";
+import * as LOCATION from "../constants/location";
+---
+
+<header class="relative pb-20 grid place-items-center text-center pt-10">
+  <Background />
+
+  <Title />
+
+  <p class="faq-header tilt-left">{format(EVENT_DATE, "MMMM do, yyyy")}</p>
+  <p class="faq-header tilt-right">at {LOCATION.NAME}</p>
+
+  <p class="p">
+    {`${LOCATION.STREET_ADDRESS}, ${LOCATION.ADDRESS_ADDITIONAL}`}
+  </p>
+
+  <h3 class="h1 mb-10">
+    <span class="letter-2">1</span><span class="letter-3">2</span>:<span
+      class="letter-5">0</span
+    ><span class="letter-6">0</span> – <span class="letter-5">1</span><span
+      class="letter-8">8</span
+    ><span class="letter-9">:</span><span class="letter-10">0</span><span
+      class="letter-11">0</span
+    >
+  </h3>
+
+  <a
+    class="register-link"
+    href={LINKS.REGISTER_LINK}
+    target="_blank"
+    onclick="fathom.trackEvent('register here click');"
+  >
+    Register here
+  </a>
+</header>
+
+<FlyerTabs />

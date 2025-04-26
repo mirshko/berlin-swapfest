@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import { format } from "date-fns";
 import tear from "../assets/tear-outline.png";
 import { EVENT_DATE } from "../constants/date";
@@ -25,7 +26,13 @@ const TAB_DATE = `${format(EVENT_DATE, "MMMM do")} @ ${NAME}`;
     })
   }
 
-  <img src={tear.src} alt="tear" class="tear" />
+  <Image
+    alt=""
+    src={tear}
+    class="absolute inset-0 w-full -z-1 object-contain"
+    loading="eager"
+    priority
+  />
 </div>
 
 <style>
@@ -121,14 +128,6 @@ const TAB_DATE = `${format(EVENT_DATE, "MMMM do")} @ ${NAME}`;
     white-space: nowrap;
     display: flex;
     flex-direction: column;
-  }
-
-  .tear {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    z-index: -1;
-    object-fit: contain;
   }
 </style>
 

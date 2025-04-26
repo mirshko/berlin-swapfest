@@ -1,54 +1,16 @@
 ---
-import { format } from "date-fns";
-import Background from "../components/background.astro";
-import FlyerTabs from "../components/flyer-tabs.astro";
-import Snapshots from "../components/snapshots.astro";
-import Title from "../components/title.astro";
-import { EVENT_DATE } from "../constants/date";
+import Hero from "../components/hero.astro";
 import * as LINKS from "../constants/links";
-import * as LOCATION from "../constants/location";
 import Layout from "../layouts/layout.astro";
 ---
 
 <Layout>
-  <div
-    class="relative pb-25 flex flex-col items-center justify-center align-self-stretch text-center pt-10"
+  <Hero />
+
+  <main
+    class="px-5 pt-20 pb-20 max-w-5xl mx-auto w-full text-center grid place-items-center"
   >
-    <Background />
-
-    <Title />
-
-    <p class="faq-header tilt-left">{format(EVENT_DATE, "MMMM do, yyyy")}</p>
-    <p class="faq-header tilt-right">at {LOCATION.NAME}</p>
-
-    <p class="p">
-      {`${LOCATION.STREET_ADDRESS}, ${LOCATION.ADDRESS_ADDITIONAL}`}
-    </p>
-
-    <h3 class="h1">
-      <span class="letter-2">1</span><span class="letter-3">2</span>:<span
-        class="letter-5">0</span
-      ><span class="letter-6">0</span> – <span class="letter-5">1</span><span
-        class="letter-8">8</span
-      ><span class="letter-9">:</span><span class="letter-10">0</span><span
-        class="letter-11">0</span
-      >
-    </h3>
-
-    <a
-      class="register-link mt-10"
-      href={LINKS.REGISTER_LINK}
-      target="_blank"
-      onclick="fathom.trackEvent('register here click');"
-    >
-      Register here
-    </a>
-  </div>
-
-  <FlyerTabs />
-
-  <div class="flex flex-col items-center justify-center text-center mx-5">
-    <p class="p mb-5 mt-20">
+    <p class="p mb-5">
       In association with Berlin's long-time hacker space <a
         href="https://c-base.org">c-base</a
       > we're hosting a quarterly event at their space in Kreuzberg. This is a place
@@ -66,54 +28,72 @@ import Layout from "../layouts/layout.astro";
       >
     </p>
 
-    <div class="mb-10">
-      <Snapshots />
-    </div>
-
     <h2 class="h1">
       <span class="letter-1">F</span><span class="letter-2">A</span><span
         class="letter-3">Q</span
       >
     </h2>
 
-    <h2 class="faq-header tilt-left mb-5">Do you provide tables?</h2>
+    <div class="space-y-10 sm:space-y-25">
+      <article class="space-y-5">
+        <div>
+          <h2 class="faq-header tilt-left inline-block">
+            Do you provide tables?
+          </h2>
+        </div>
 
-    <div class="mb-25">
-      <p class="p">
-        Yes, c-base will provide space and tables. Space will be allocated based
-        on registration information. If you forgot to register as a provider of
-        items, it may be possible to to get table-space if there is room left -
-        but people that registered have priority!
-      </p>
+        <div class="space-y-5">
+          <p class="p">
+            Yes, c-base will provide space and tables. Space will be allocated
+            based on registration information. If you forgot to register as a
+            provider of items, it may be possible to to get table-space if there
+            is room left - but people that registered have priority!
+          </p>
+        </div>
+      </article>
+
+      <article class="space-y-5">
+        <div>
+          <h2 class="faq-header tilt-right inline-block">
+            How much to get a table?
+          </h2>
+        </div>
+
+        <div class="space-y-5">
+          <p class="p">
+            Being a provider of items is free. Depending on the size of the item
+            you're bringing you may be asked for a deposit to handle disposal of
+            your items should you not bring it back home with you.
+          </p>
+
+          <p class="p">
+            However, we highly encourage you to only bring items you're
+            comfortable bringing back home with you.
+          </p>
+        </div>
+      </article>
+
+      <article class="space-y-5">
+        <div>
+          <h2 class="faq-header inline-block tilt-left">
+            How can I swap stuff?
+          </h2>
+        </div>
+
+        <div class="space-y-5">
+          <p class="p">
+            We have no requirements on how to exchange goods; if you choose to
+            use Cash, Cryptocurrency, PayPal, Electronics, Services, Knowledge,
+            Beverages, etc. it is entirely up to you. Any disputes must be taken
+            up with the seller. Only in the case of a breach of c-base rules
+            will a team member step in.
+          </p>
+        </div>
+      </article>
     </div>
+  </main>
 
-    <h2 class="faq-header tilt-right mb-5">How much to get a table?</h2>
-
-    <div class="mb-25">
-      <p class="p mb-5">
-        Being a provider of items is free. Depending on the size of the item
-        you're bringing you may be asked for a deposit to handle disposal of
-        your items should you not bring it back home with you.
-      </p>
-
-      <p class="p">
-        However, we highly encourage you to only bring items you're comfortable
-        bringing back home with you.
-      </p>
-    </div>
-
-    <h2 class="faq-header tilt-left mb-5">How can I swap stuff?</h2>
-
-    <div class="mb-25">
-      <p class="p">
-        We have no requirements on how to exchange goods; if you choose to use
-        Cash, Cryptocurrency, PayPal, Electronics, Services, Knowledge,
-        Beverages, etc. it is entirely up to you. Any disputes must be taken up
-        with the seller. Only in the case of a breach of c-base rules will a
-        team member step in.
-      </p>
-    </div>
-
+  <footer class="text-center pb-20">
     <div class="mb-5">
       <p class="p">
         <a
@@ -166,5 +146,5 @@ import Layout from "../layouts/layout.astro";
         Source <a href={LINKS.GITHUB_LINK} target="_blank"> on GitHub </a>
       </p>
     </div>
-  </div>
+  </footer>
 </Layout>

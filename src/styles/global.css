@@ -17,7 +17,7 @@ html {
 }
 
 .p {
-  @apply font-mono font-bold mx-auto w-full max-w-[64rem];
+  @apply font-mono font-bold;
   font-size: clamp(1.125rem, 0.875rem + 0.5208vw, 1.5rem);
 }
 
