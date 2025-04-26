@@ -38,17 +38,19 @@ import Layout from "../layouts/layout.astro";
     </div>
 
     <h2 class="display">
-      <span class="letter-1">F</span><span class="letter-2">A</span><span
-        class="letter-3">Q</span
-      >
+      <span aria-hidden="true" class="letter-1">F</span><span
+        aria-hidden="true"
+        class="letter-2">A</span
+      ><span aria-hidden="true" class="letter-3">Q</span>
+      <span class="sr-only">FAQ</span>
     </h2>
 
     <div class="space-y-10 sm:space-y-25">
       <article class="space-y-5">
         <div>
-          <h2 class="faq-header tilt-left inline-block">
+          <h3 class="faq-header tilt-left inline-block">
             Do you provide tables?
-          </h2>
+          </h3>
         </div>
 
         <div class="space-y-5">
@@ -63,9 +65,9 @@ import Layout from "../layouts/layout.astro";
 
       <article class="space-y-5">
         <div>
-          <h2 class="faq-header tilt-right inline-block">
+          <h3 class="faq-header tilt-right inline-block">
             How much to get a table?
-          </h2>
+          </h3>
         </div>
 
         <div class="space-y-5">
@@ -84,9 +86,9 @@ import Layout from "../layouts/layout.astro";
 
       <article class="space-y-5">
         <div>
-          <h2 class="faq-header tilt-left inline-block">
+          <h3 class="faq-header tilt-left inline-block">
             How can I swap stuff?
-          </h2>
+          </h3>
         </div>
 
         <div class="space-y-5">
