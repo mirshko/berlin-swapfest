@@ -46,14 +46,22 @@ import * as LOCATION from "../constants/location";
     <span class="sr-only">12:00 to 18:00</span>
   </p>
 
-  <a
-    class="register-link"
-    href={LINKS.REGISTER_LINK}
-    onclick="fathom.trackEvent('register here click');"
-    target="_blank"
-  >
-    Register here
-  </a>
+  <p class="register-link">
+    <a
+      aria-label="Register to attend the Berlin Swapfest"
+      class="register-link"
+      href={LINKS.REGISTER_LINK}
+      onclick="fathom.trackEvent('register here click');"
+      target="_blank">Register to attend</a
+    >
+    {" or "}<a
+      aria-label="Register to reserve a table"
+      class="register-link"
+      href={LINKS.TABLE_REGISTER_LINK}
+      onclick="fathom.trackEvent('register here click');"
+      target="_blank">reserve a table</a
+    >
+  </p>
 </header>
 
 <FlyerTabs />
