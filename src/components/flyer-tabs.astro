@@ -10,7 +10,7 @@ const TAB_DATE = `${format(EVENT_DATE, "MMMM do")} @ ${NAME}`;
 
 <div class="tabs">
   {
-    Array.from({ length: 16 }).map((_, idx) => {
+    new Array(16).map((_, idx) => {
       const breakpoint = idx + 1 > 8 ? "lg" : idx + 1 > 6 ? "md" : "sm";
 
       return (
