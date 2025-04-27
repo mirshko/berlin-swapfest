@@ -1,13 +1,15 @@
 ---
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import bg from "../assets/bg.png";
 ---
 
-<Image
+<Picture
   alt=""
   class="absolute inset-0 -z-1 h-full w-full object-cover select-none"
   draggable={false}
+  formats={["avif", "webp"]}
   loading="eager"
   priority
+  sizes="100vw"
   src={bg}
 />
