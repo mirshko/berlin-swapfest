@@ -39,7 +39,7 @@ a {
 }
 
 .register-link {
-  @apply text-center text-[3vw];
+  @apply text-center text-[4vw];
 }
 
 /* TILT */
