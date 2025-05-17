@@ -12,6 +12,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.4.0",
     "animejs": "^4.0.2",
     "astro-masonry": "^1.2.2",
     "date-fns": "^4.1.0"
