@@ -7,6 +7,7 @@ import Layout from "../layouts/layout.astro";
 import type { ImageMetadata } from "astro";
 import { format } from "date-fns";
 import { Picture } from "astro:assets";
+import { Masonry } from "astro-masonry";
 
 const events = await getCollection("events");
 
@@ -91,26 +92,29 @@ const data = await Promise.all(
               </p>
             </div>
 
-            <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+            <Masonry
+              breakpointCols={{
+                default: 4,
+                1024: 3,
+                768: 2,
+                640: 1,
+              }}
+              class="gap-5"
+              sortByHeight
+            >
               {event.photos
                 .filter((photo) => !!photo.image)
-                .map((photo, index) => (
+                .map((photo) => (
                   <Picture
                     alt={photo.alt}
-                    class:list={[
-                      "rounded-sm md:aspect-[4/3] md:object-cover",
-                      {
-                        "md:rotate-1": index % 2 === 1,
-                        "md:-rotate-3": index % 2 === 0,
-                      },
-                    ]}
+                    class:list="rounded-sm mb-5"
                     formats={["avif", "webp"]}
                     loading="lazy"
                     quality="high"
                     src={photo.image as ImageMetadata}
                   />
                 ))}
-            </div>
+            </Masonry>
           </article>
         ))
       }
