@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, type InferEntrySchema } from "astro:content";
 import Background from "../components/background.astro";
 import Footer from "../components/footer.astro";
 import Title from "../components/title.astro";
@@ -8,36 +8,42 @@ import type { ImageMetadata } from "astro";
 import { format } from "date-fns";
 import { Picture } from "astro:assets";
 
-const data = await getCollection("events");
+const events = await getCollection("events");
 
-async function getImages(date: string) {
-  let images = import.meta.glob<{ default: ImageMetadata }>(
+async function getEventWithImages(data: InferEntrySchema<"events">) {
+  const { date } = data;
+
+  const allImages = import.meta.glob<{ default: ImageMetadata }>(
     "/src/content/**/*.{jpeg,jpg}"
   );
 
-  images = Object.fromEntries(
-    Object.entries(images).filter(([key]) => key.includes(date))
+  const datePattern = `/src/content/${date}/`;
+  const eventImages = Object.entries(allImages).filter(([path]) =>
+    path.startsWith(datePattern)
   );
 
-  const resolvedImages = await Promise.all(
-    Object.values(images).map((image) => image().then((m) => m.default))
-  );
+  const imageMap = new Map<string, ImageMetadata>();
 
-  return resolvedImages;
+  for await (const [path, loader] of eventImages) {
+    // eslint-disable-next-line unicorn/no-await-expression-member
+    const image = (await loader()).default;
+    const fileName = path.split("/").pop()?.split(".")[0];
+    if (fileName) {
+      imageMap.set(fileName, image);
+    }
+  }
+
+  return {
+    ...data,
+    photos: data.photos.map((photo) => ({
+      ...photo,
+      image: imageMap.get(photo.fileName),
+    })),
+  };
 }
 
-const events = await Promise.all(
-  data.map(async (event) => {
-    const images = await getImages(event.data.date);
-
-    return {
-      ...event.data,
-      photos: event.data.photos.map((photo) => ({
-        ...photo,
-        image: images.find((image) => image.src.includes(photo.fileName)),
-      })),
-    };
-  })
+const data = await Promise.all(
+  events.map(({ data }) => getEventWithImages(data))
 );
 ---
 
@@ -57,7 +63,7 @@ const events = await Promise.all(
   >
     <div class="space-y-10 sm:space-y-25">
       {
-        events.map((event, index) => (
+        data.map((event, index) => (
           <article class="space-y-10">
             <div class="flex flex-col items-center">
               <h3
