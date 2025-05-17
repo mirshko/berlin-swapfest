@@ -3,8 +3,12 @@ import { defineConfig, envField, fontProviders } from "astro/config";
 
 import tailwindcss from "@tailwindcss/vite";
 
+import sitemap from "@astrojs/sitemap";
+
 // https://astro.build/config
 export default defineConfig({
+  site: "https://www.swapfest.berlin",
+
   env: {
     schema: {
       FATHOM_SITE: envField.string({
@@ -13,6 +17,7 @@ export default defineConfig({
       }),
     },
   },
+
   experimental: {
     fonts: [
       {
@@ -35,7 +40,10 @@ export default defineConfig({
       },
     ],
   },
+
   vite: {
     plugins: [tailwindcss()],
   },
+
+  integrations: [sitemap()],
 });

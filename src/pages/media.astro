@@ -1,0 +1,126 @@
+---
+import type { ImageMetadata } from "astro";
+import { Masonry } from "astro-masonry";
+import { Picture } from "astro:assets";
+import { getCollection, type InferEntrySchema } from "astro:content";
+import { format } from "date-fns";
+import Background from "../components/background.astro";
+import Footer from "../components/footer.astro";
+import Title from "../components/title.astro";
+import { TITLE } from "../constants/seo";
+import Layout from "../layouts/layout.astro";
+
+const events = await getCollection("events");
+
+async function getEventWithImages(data: InferEntrySchema<"events">) {
+  const { date } = data;
+
+  const allImages = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/content/**/*.{jpeg,jpg}",
+  );
+
+  const datePattern = `/src/content/${date}/`;
+  const eventImages = Object.entries(allImages).filter(([path]) =>
+    path.startsWith(datePattern),
+  );
+
+  const imageMap = new Map<string, ImageMetadata>();
+
+  for await (const [path, loader] of eventImages) {
+    // eslint-disable-next-line unicorn/no-await-expression-member
+    const image = (await loader()).default;
+    const fileName = path.split("/").pop()?.split(".")[0];
+    if (fileName) {
+      imageMap.set(fileName, image);
+    }
+  }
+
+  return {
+    ...data,
+    photos: data.photos.map((photo) => ({
+      ...photo,
+      image: imageMap.get(photo.fileName),
+    })),
+  };
+}
+
+const data = await Promise.all(
+  events.map(({ data }) => getEventWithImages(data)),
+);
+---
+
+<Layout title={`Media | ${TITLE}`}>
+  <header
+    class="relative grid place-items-center border-b pt-10 pb-20 text-center"
+  >
+    <Background />
+
+    <a href="/"><Title /></a>
+
+    <p class="faq-header tilt-left">Media</p>
+  </header>
+
+  <main
+    class="mx-auto grid w-full max-w-7xl place-items-center px-5 pt-20 pb-20 text-center"
+  >
+    <div class="space-y-10 sm:space-y-25">
+      {
+        data.map((event, index) => (
+          <article class="space-y-10">
+            <div class="flex flex-col items-center">
+              <h3
+                class:list={[
+                  "faq-header inline-block",
+                  {
+                    "tilt-right": index % 2 === 0,
+                    "tilt-left": index % 2 === 1,
+                  },
+                ]}
+              >
+                {format(event.date, "MMMM do, yyyy")}
+              </h3>
+
+              <p
+                class:list={[
+                  "faq-header inline-block",
+                  {
+                    "tilt-right": index % 2 === 1,
+                    "tilt-left": index % 2 === 0,
+                  },
+                ]}
+              >
+                {`at ${event.location}`}
+              </p>
+            </div>
+
+            <Masonry
+              breakpointCols={{
+                default: 4,
+                1024: 3,
+                768: 2,
+                640: 1,
+              }}
+              class="gap-5"
+              sortByHeight
+            >
+              {event.photos
+                .filter((photo) => !!photo.image)
+                .map((photo) => (
+                  <Picture
+                    alt={photo.alt}
+                    class:list="rounded-sm mb-5"
+                    formats={["avif", "webp"]}
+                    loading="lazy"
+                    quality="high"
+                    src={photo.image as ImageMetadata}
+                  />
+                ))}
+            </Masonry>
+          </article>
+        ))
+      }
+    </div>
+  </main>
+</Layout>
+
+<Footer />

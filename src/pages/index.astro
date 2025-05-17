@@ -1,6 +1,6 @@
 ---
+import Footer from "../components/footer.astro";
 import Hero from "../components/hero.astro";
-import * as LINKS from "../constants/links";
 import Layout from "../layouts/layout.astro";
 ---
 
@@ -104,58 +104,5 @@ import Layout from "../layouts/layout.astro";
     </div>
   </main>
 
-  <footer class="pb-20 text-center">
-    <div class="mb-5">
-      <p class="body">
-        <a
-          class="no-underline"
-          href={LINKS.CONTACT_LINK}
-          rel="nofollow"
-          target="_blank"
-        >
-          Contact
-        </a>
-      </p>
-
-      <p class="body">
-        <a
-          class="no-underline"
-          href={LINKS.MATRIX_LINK}
-          rel="nofollow"
-          target="_blank"
-        >
-          Matrix Chat
-        </a>
-      </p>
-
-      <p class="body">
-        <a
-          class="no-underline"
-          href={LINKS.BLUESKY_LINK}
-          rel="nofollow"
-          target="_blank"
-        >
-          Bluesky
-        </a>
-      </p>
-    </div>
-
-    <div class="mb-5">
-      <p class="body">
-        Brought to you by <a href="https://www.reiner.systems" target="_blank">
-          mirshko
-        </a>
-      </p>
-
-      <p class="body">
-        Designed by <a href="https://www.brandonoxendine.com" target="_blank">
-          Brandon Oxendine
-        </a>
-      </p>
-
-      <p class="body">
-        Source <a href={LINKS.GITHUB_LINK} target="_blank"> on GitHub </a>
-      </p>
-    </div>
-  </footer>
+  <Footer />
 </Layout>

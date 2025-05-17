@@ -44,6 +44,14 @@ const eventStructuredData: WithContext<Event> = {
     },
   ],
 };
+
+// eslint-disable-next-line unicorn/prevent-abbreviations
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = SEO.TITLE, description = SEO.DESCRIPTION } = Astro.props;
 ---
 
 <!doctype html>
@@ -51,11 +59,12 @@ const eventStructuredData: WithContext<Event> = {
   <head>
     <meta charset="utf8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>{SEO.TITLE}</title>
-    <meta content={SEO.DESCRIPTION} name="description" />
-    <meta content={SEO.TITLE} property="og:title" />
-    <meta content={SEO.DESCRIPTION} property="og:description" />
+    <title>{title}</title>
+    <meta content={description} name="description" />
+    <meta content={title} property="og:title" />
+    <meta content={description} property="og:description" />
     <meta content="website" property="og:type" />
+    <meta content="Berlin Swapfest" property="og:site_name" />
     <meta
       content="https://www.swapfest.berlin/og-image.png"
       property="og:image"
@@ -65,6 +74,7 @@ const eventStructuredData: WithContext<Event> = {
     <meta content="1200" property="og:image:width" />
     <meta content="627" property="og:image:height" />
     <meta content="Berlin Swapfest at c-base" property="og:image:alt" />
+    <link href="/sitemap-index.xml" rel="sitemap" />
     <Font cssVariable="--font-caprasimo" preload />
     <Font cssVariable="--font-courier-prime" preload />
     <Fathom />
