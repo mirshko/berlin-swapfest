@@ -9,6 +9,7 @@ import Footer from "../components/footer.astro";
 import Title from "../components/title.astro";
 import { TITLE } from "../constants/seo";
 import Layout from "../layouts/layout.astro";
+import Lightbox from "../components/lightbox.tsx";
 
 const events = await getCollection("events");
 
@@ -16,12 +17,12 @@ async function getEventWithImages(data: InferEntrySchema<"events">) {
   const { date } = data;
 
   const allImages = import.meta.glob<{ default: ImageMetadata }>(
-    "/src/content/**/*.{jpeg,jpg}",
+    "/src/content/**/*.{jpeg,jpg}"
   );
 
   const datePattern = `/src/content/${date}/`;
   const eventImages = Object.entries(allImages).filter(([path]) =>
-    path.startsWith(datePattern),
+    path.startsWith(datePattern)
   );
 
   const imageMap = new Map<string, ImageMetadata>();
@@ -45,7 +46,7 @@ async function getEventWithImages(data: InferEntrySchema<"events">) {
 }
 
 const data = await Promise.all(
-  events.map(({ data }) => getEventWithImages(data)),
+  events.map(({ data }) => getEventWithImages(data))
 );
 ---
 
@@ -106,14 +107,16 @@ const data = await Promise.all(
               {event.photos
                 .filter((photo) => !!photo.image)
                 .map((photo) => (
-                  <Picture
-                    alt={photo.alt}
-                    class:list="rounded-sm mb-5"
-                    formats={["avif", "webp"]}
-                    loading="lazy"
-                    quality="high"
-                    src={photo.image as ImageMetadata}
-                  />
+                  <Lightbox client:load>
+                    <Picture
+                      alt={photo.alt}
+                      class:list="rounded-sm mb-5"
+                      formats={["avif", "webp"]}
+                      loading="lazy"
+                      quality="high"
+                      src={photo.image as ImageMetadata}
+                    />
+                  </Lightbox>
                 ))}
             </Masonry>
           </article>

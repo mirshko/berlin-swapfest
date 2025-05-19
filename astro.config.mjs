@@ -5,6 +5,8 @@ import tailwindcss from "@tailwindcss/vite";
 
 import sitemap from "@astrojs/sitemap";
 
+import react from "@astrojs/react";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://www.swapfest.berlin",
@@ -45,5 +47,5 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
-  integrations: [sitemap()],
+  integrations: [sitemap(), react()],
 });
