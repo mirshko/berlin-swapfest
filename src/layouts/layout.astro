@@ -59,6 +59,7 @@ const { title = SEO.TITLE, description = SEO.DESCRIPTION } = Astro.props;
   <head>
     <meta charset="utf8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content={Astro.generator} name="generator" />
     <title>{title}</title>
     <meta content={description} name="description" />
     <meta content={title} property="og:title" />
