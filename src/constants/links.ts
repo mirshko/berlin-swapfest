@@ -13,3 +13,5 @@ export const CONTACT_LINK =
   "https://cryptpad.fr/form/#/2/form/view/FvacuuCM5hGIaUyfb16dtRXzyPKd+qtsW+Wo9FoUBck/";
 
 export const GITHUB_LINK = "https://github.com/brandonhaslegs/berlin-swapfest";
+
+export const NEWSLETTER_LINK = "https://buttondown.com/swapfest.berlin";
