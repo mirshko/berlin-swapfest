@@ -1,4 +1,7 @@
 ---
+import About from "../components/about.astro";
+import Faq from "../components/faq.astro";
+import Featured from "../components/featured.astro";
 import Footer from "../components/footer.astro";
 import Hero from "../components/hero.astro";
 import Layout from "../layouts/layout.astro";
@@ -8,100 +11,13 @@ import Layout from "../layouts/layout.astro";
   <Hero />
 
   <main
-    class="mx-auto grid w-full max-w-5xl place-items-center px-5 pt-20 pb-20 text-center"
+    class="mx-auto grid w-full place-items-center px-5 pt-20 pb-20 text-center"
   >
-    <div class="mb-10 space-y-5">
-      <p class="body">
-        In association with <a href="https://c-base.org">c-base</a>
-        — the oldest discovered space station under Berlin — now long-running (nearly
-        30 years) hackerspace, we're hosting a quarterly event.
-      </p>
+    <About />
 
-      <p class="body">
-        In tune with the spirit of right-to-repair as well as reuse, the goal of
-        the Berlin Swapfest is for people to bring electronics, equipment, and
-        tools they no longer use but want to bring to a good home. If you've
-        been trying to find the perfect equipment to build your home-lab or
-        looking for new electronic components or tools, this should be the place
-        for you. Berlin Swapfest is inspired by the <a
-          href="https://w1mx.mit.edu/flea-at-mit/">MIT Swapfest</a
-        >.
-      </p>
+    <Faq />
 
-      <p class="body">
-        We will try to make things educational and entertaining. Hourly, we pass
-        a microphone around so those who want to swap items <em>can</em> elaborate
-        on what they're offering and what their expectations are for the exchange.
-        The Berlin Swapfest is a relaxed event where you can meet other people. Additionally,
-        there is a bar where you can get beverages.
-      </p>
-    </div>
-
-    <h2 class="display">
-      <span aria-hidden="true" class="letter-1">F</span><span
-        aria-hidden="true"
-        class="letter-2">A</span
-      ><span aria-hidden="true" class="letter-3">Q</span>
-      <span class="sr-only">FAQ</span>
-    </h2>
-
-    <div class="space-y-10 sm:space-y-25">
-      <article class="space-y-5">
-        <div>
-          <h3 class="faq-header tilt-left inline-block">
-            Do you provide tables?
-          </h3>
-        </div>
-
-        <div class="space-y-5">
-          <p class="body">
-            Yes, c-base will provide space and tables. Space will be allocated
-            based on registration information. If you forgot to register as a
-            provider of items, it may be possible to get table space if there is
-            room left, but people who registered have priority!
-          </p>
-        </div>
-      </article>
-
-      <article class="space-y-5">
-        <div>
-          <h3 class="faq-header tilt-right inline-block">
-            How much to get a table?
-          </h3>
-        </div>
-
-        <div class="space-y-5">
-          <p class="body">
-            Being a provider of items is free. Depending on the size of the
-            items you're bringing, you may be asked for a deposit to cover
-            potential disposal costs if you don't take them back home.
-          </p>
-
-          <p class="body">
-            However, we highly encourage you to only bring items you're
-            comfortable taking back home.
-          </p>
-        </div>
-      </article>
-
-      <article class="space-y-5">
-        <div>
-          <h3 class="faq-header tilt-left inline-block">
-            How can I swap stuff?
-          </h3>
-        </div>
-
-        <div class="space-y-5">
-          <p class="body">
-            We have no requirements on how to exchange goods. You can use cash,
-            cryptocurrency, PayPal, electronics, services, knowledge, beverages,
-            or any other medium of exchange—it is entirely up to you. Any
-            disputes must be resolved between the parties involved. Team members
-            will only intervene in cases where c-base rules are breached.
-          </p>
-        </div>
-      </article>
-    </div>
+    <Featured />
   </main>
 
   <Footer />

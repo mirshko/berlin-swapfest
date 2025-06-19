@@ -1,0 +1,27 @@
+---
+// eslint-disable-next-line unicorn/prevent-abbreviations
+export interface Props {
+  text: string;
+  words: [string, string][][];
+}
+
+const { text, words } = Astro.props;
+---
+
+<>
+  {
+    words.map((word, index, self) => (
+      <>
+        {word.map(([letter, className]) => (
+          <span aria-hidden="true" class:list={className}>
+            {letter}
+          </span>
+        ))}
+
+        {index !== self.length - 1 && " "}
+      </>
+    ))
+  }
+
+  <span class="sr-only">{text}</span>
+</>

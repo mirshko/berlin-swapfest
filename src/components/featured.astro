@@ -1,0 +1,41 @@
+---
+import HandpickedBerlin from "../images/logo-handpicked-berlin.svg";
+import WiggleText from "./wiggle-text.astro";
+---
+
+<h2 class="title mt-20">
+  <WiggleText
+    text="Featured In"
+    words={[
+      [
+        ["F", "rotate-[-5deg] scale-120"],
+        ["E", "rotate-[3deg] scale-80"],
+        ["A", "rotate-[-6deg] scale-95 ml-[-0.6%]"],
+        ["T", "rotate-[5deg] scale-100 ml-[-0.3%]"],
+        ["U", "rotate-[9deg] scale-90 ml-[0.2%]"],
+        ["R", "rotate-[-5deg] scale-95 ml-[0.4%]"],
+        ["E", "rotate-[3deg] scale-85"],
+        ["D", "rotate-[-6deg] scale-95"],
+      ],
+      [
+        ["I", "rotate-[7deg] scale-105"],
+        ["N", "rotate-[-4deg] scale-85 ml-[0.3%]"],
+      ],
+    ]}
+  />
+</h2>
+
+<div class="mt-20 flex flex-wrap gap-10">
+  <a
+    class="transition-opacity hover:bg-transparent! hover:opacity-60"
+    href="https://newsletter.handpickedberlin.com?utm_source=partner&utm_campaign=swapfest&utm_medium=link"
+    rel="nofollow"
+    target="_blank"
+  >
+    <HandpickedBerlin
+      aria-labelledby="handpicked-berlin"
+      class="h-auto w-[320px]"
+    />
+    <span class="sr-only" id="handpicked-berlin">Handpicked Berlin</span>
+  </a>
+</div>
