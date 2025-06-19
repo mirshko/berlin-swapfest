@@ -23,6 +23,10 @@ html {
   @apply text-center text-[15vw] leading-[1] tracking-[-0.03em] uppercase *:inline-block;
 }
 
+.title {
+  @apply text-center text-[7.5vw] leading-[1] tracking-[-0.03em] uppercase *:inline-block;
+}
+
 .body {
   @apply font-mono leading-normal font-bold;
   font-size: clamp(1.125rem, 0.875rem + 0.5208vw, 1.5rem);

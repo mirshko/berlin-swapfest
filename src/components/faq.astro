@@ -1,0 +1,70 @@
+---
+import WiggleText from "./wiggle-text.astro";
+---
+
+<h2 class="display">
+  <WiggleText
+    text="FAQ"
+    words={[
+      [
+        ["F", "rotate-[-5deg] scale-105"],
+        ["A", "rotate-[3deg] scale-85 ml-[-1.5%]"],
+        ["Q", "rotate-[-10deg] scale-85 ml-[-5%]"],
+      ],
+    ]}
+  />
+</h2>
+
+<div class="space-y-10 sm:space-y-25">
+  <article class="space-y-5">
+    <div>
+      <h3 class="faq-header tilt-left inline-block">Do you provide tables?</h3>
+    </div>
+
+    <div class="space-y-5">
+      <p class="body max-w-4xl">
+        Yes, c-base will provide space and tables. Space will be allocated based
+        on registration information. If you forgot to register as a provider of
+        items, it may be possible to get table space if there is room left, but
+        people who registered have priority!
+      </p>
+    </div>
+  </article>
+
+  <article class="space-y-5">
+    <div>
+      <h3 class="faq-header tilt-right inline-block">
+        How much to get a table?
+      </h3>
+    </div>
+
+    <div class="space-y-5">
+      <p class="body max-w-4xl">
+        Being a provider of items is free. Depending on the size of the items
+        you're bringing, you may be asked for a deposit to cover potential
+        disposal costs if you don't take them back home.
+      </p>
+
+      <p class="body max-w-4xl">
+        However, we highly encourage you to only bring items you're comfortable
+        taking back home.
+      </p>
+    </div>
+  </article>
+
+  <article class="space-y-5">
+    <div>
+      <h3 class="faq-header tilt-left inline-block">How can I swap stuff?</h3>
+    </div>
+
+    <div class="space-y-5">
+      <p class="body max-w-4xl">
+        We have no requirements on how to exchange goods. You can use cash,
+        cryptocurrency, PayPal, electronics, services, knowledge, beverages, or
+        any other medium of exchange—it is entirely up to you. Any disputes must
+        be resolved between the parties involved. Team members will only
+        intervene in cases where c-base rules are breached.
+      </p>
+    </div>
+  </article>
+</div>
