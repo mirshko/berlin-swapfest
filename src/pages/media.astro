@@ -17,12 +17,12 @@ async function getEventWithImages(data: InferEntrySchema<"events">) {
   const { date } = data;
 
   const allImages = import.meta.glob<{ default: ImageMetadata }>(
-    "/src/content/**/*.{jpeg,jpg}",
+    "/src/content/**/*.{jpeg,jpg}"
   );
 
   const datePattern = `/src/content/${date}/`;
   const eventImages = Object.entries(allImages).filter(([path]) =>
-    path.startsWith(datePattern),
+    path.startsWith(datePattern)
   );
 
   const imageMap = new Map<string, ImageMetadata>();
@@ -46,7 +46,7 @@ async function getEventWithImages(data: InferEntrySchema<"events">) {
 }
 
 const data = await Promise.all(
-  events.map(({ data }) => getEventWithImages(data)),
+  events.map(({ data }) => getEventWithImages(data))
 );
 ---
 
@@ -66,61 +66,63 @@ const data = await Promise.all(
   >
     <div class="space-y-10 sm:space-y-25">
       {
-        data.map((event, index) => (
-          <article class="space-y-10">
-            <div class="flex flex-col items-center">
-              <h3
-                class:list={[
-                  "faq-header inline-block",
-                  {
-                    "tilt-right": index % 2 === 0,
-                    "tilt-left": index % 2 === 1,
-                  },
-                ]}
-              >
-                {format(event.date, "MMMM do, yyyy")}
-              </h3>
+        data
+          .sort((a, b) => +new Date(b.date) - +new Date(a.date))
+          .map((event, index) => (
+            <article class="space-y-10">
+              <div class="flex flex-col items-center">
+                <h3
+                  class:list={[
+                    "faq-header inline-block",
+                    {
+                      "tilt-right": index % 2 === 0,
+                      "tilt-left": index % 2 === 1,
+                    },
+                  ]}
+                >
+                  {format(event.date, "MMMM do, yyyy")}
+                </h3>
 
-              <p
-                class:list={[
-                  "faq-header inline-block",
-                  {
-                    "tilt-right": index % 2 === 1,
-                    "tilt-left": index % 2 === 0,
-                  },
-                ]}
-              >
-                {`at ${event.location}`}
-              </p>
-            </div>
+                <p
+                  class:list={[
+                    "faq-header inline-block",
+                    {
+                      "tilt-right": index % 2 === 1,
+                      "tilt-left": index % 2 === 0,
+                    },
+                  ]}
+                >
+                  {`at ${event.location}`}
+                </p>
+              </div>
 
-            <Masonry
-              breakpointCols={{
-                default: 4,
-                1024: 3,
-                768: 2,
-                640: 1,
-              }}
-              class="gap-5"
-              sortByHeight
-            >
-              {event.photos
-                .filter((photo) => !!photo.image)
-                .map((photo) => (
-                  <Lightbox client:load>
-                    <Picture
-                      alt={photo.alt}
-                      class:list="rounded-sm mb-5"
-                      formats={["avif", "webp"]}
-                      loading="lazy"
-                      quality="high"
-                      src={photo.image as ImageMetadata}
-                    />
-                  </Lightbox>
-                ))}
-            </Masonry>
-          </article>
-        ))
+              <Masonry
+                breakpointCols={{
+                  default: 4,
+                  1024: 3,
+                  768: 2,
+                  640: 1,
+                }}
+                class="gap-5"
+                sortByHeight
+              >
+                {event.photos
+                  .filter((photo) => !!photo.image)
+                  .map((photo) => (
+                    <Lightbox client:only="react">
+                      <Picture
+                        alt={photo.alt}
+                        class:list="rounded-sm mb-5"
+                        formats={["avif", "webp"]}
+                        loading="lazy"
+                        quality="high"
+                        src={photo.image as ImageMetadata}
+                      />
+                    </Lightbox>
+                  ))}
+              </Masonry>
+            </article>
+          ))
       }
     </div>
   </main>

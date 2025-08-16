@@ -7,33 +7,33 @@
   --color-highlight: yellow;
 }
 
-/* BASE */
+@layer base {
+  html {
+    @apply leading-[1.6] antialiased;
+    text-rendering: optimizeLegibility;
+  }
 
-html {
-  @apply leading-[1.6] antialiased;
-  text-rendering: optimizeLegibility;
-}
+  ::selection {
+    background-color: var(--color-highlight);
+    color: var(--color-black);
+  }
 
-::selection {
-  background-color: var(--color-highlight);
-  color: var(--color-black);
+  a {
+    @apply hover:bg-highlight text-black underline;
+  }
 }
 
 .display {
-  @apply text-center text-[15vw] leading-[1] tracking-[-0.03em] uppercase *:inline-block;
+  @apply text-center text-[15vw] leading-none tracking-[-0.03em] uppercase *:inline-block;
 }
 
 .title {
-  @apply text-center text-[7.5vw] leading-[1] tracking-[-0.03em] uppercase *:inline-block;
+  @apply text-center text-[7.5vw] leading-none tracking-[-0.03em] uppercase *:inline-block;
 }
 
 .body {
   @apply font-mono leading-normal font-bold;
   font-size: clamp(1.125rem, 0.875rem + 0.5208vw, 1.5rem);
-}
-
-a {
-  @apply hover:bg-highlight text-black underline;
 }
 
 /* SPECIFICS */
@@ -54,96 +54,4 @@ a {
 
 .tilt-left {
   @apply relative origin-center rotate-2;
-}
-
-/* LETTERS */
-
-.letter-1 {
-  transform: rotate(-5deg) scale(1.2);
-}
-
-.letter-2 {
-  transform: rotate(3deg) scale(0.75);
-  margin-left: 0.5rem;
-  margin-right: -0.625rem;
-}
-
-.letter-3 {
-  transform: rotate(-2deg) scale(1.05);
-  margin-right: 0.5rem;
-}
-
-.letter-4 {
-  transform: rotate(4deg) scale(1);
-}
-
-.letter-5 {
-  transform: rotate(-3deg) scale(0.8);
-  margin-left: -0.5rem;
-}
-
-.letter-6 {
-  transform: rotate(6deg) scale(1.02);
-}
-
-.letter-7 {
-  transform: rotate(-15deg) scale(1);
-}
-
-.letter-8 {
-  transform: rotate(5deg) scale(1.3);
-}
-
-.letter-9 {
-  transform: rotate(-6deg) scale(0.8);
-  margin-right: -0.625rem;
-}
-
-.letter-10 {
-  transform: rotate(2deg) scale(1.03);
-}
-
-.letter-11 {
-  transform: rotate(-3deg) scale(1.2);
-}
-
-.letter-12 {
-  transform: rotate(4deg) scale(0.85);
-  margin-right: -0.4375rem;
-}
-
-.letter-13 {
-  transform: rotate(-2deg) scale(1.06);
-}
-
-.letter-14 {
-  transform: rotate(5deg) scale(1.02);
-}
-
-.letter-15 {
-  transform: rotate(-4deg) scale(1);
-}
-
-.letter-16 {
-  transform: rotate(3deg) scale(0.99);
-}
-
-.letter-17 {
-  transform: rotate(-2deg) scale(1.05);
-}
-
-.letter-18 {
-  transform: rotate(6deg) scale(1.02);
-}
-
-.letter-19 {
-  transform: rotate(-3deg) scale(0.98);
-}
-
-.letter-20 {
-  transform: rotate(5deg) scale(1);
-}
-
-.letter-21 {
-  transform: rotate(-4deg) scale(1.07);
 }
