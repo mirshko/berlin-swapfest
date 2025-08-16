@@ -6,10 +6,10 @@ import { getCollection, type InferEntrySchema } from "astro:content";
 import { format } from "date-fns";
 import Background from "../components/background.astro";
 import Footer from "../components/footer.astro";
+import ImageLightbox from "../components/image-lightbox.astro";
 import Title from "../components/title.astro";
 import { TITLE } from "../constants/seo";
 import Layout from "../layouts/layout.astro";
-import ImageLightbox from "../components/image-lightbox.astro";
 
 const events = await getCollection("events");
 
@@ -113,6 +113,7 @@ const data = await Promise.all(
                       <Picture
                         alt={photo.alt}
                         class:list="rounded-sm mb-5"
+                        draggable="false"
                         formats={["avif", "webp"]}
                         loading="lazy"
                         quality="high"

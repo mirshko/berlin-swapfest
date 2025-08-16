@@ -12,13 +12,13 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.5.0",
     "animejs": "^4.0.2",
     "astro-masonry": "^1.2.2",
     "date-fns": "^4.1.0"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
+    "@astrojs/sitemap": "^3.5.0",
     "@eslint/js": "^9.28.0",
     "@tailwindcss/vite": "^4.1.8",
     "@typescript-eslint/parser": "^8.33.1",

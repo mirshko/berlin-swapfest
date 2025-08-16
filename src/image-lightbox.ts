@@ -83,7 +83,9 @@ class ImageLightbox extends HTMLElement {
 
     // Add event listeners
     this.overlay.addEventListener("click", this.handleOverlayClick.bind(this));
+    this.image.addEventListener("click", this.handleImageClick.bind(this));
     document.addEventListener("keydown", this.handleKeydown.bind(this));
+    document.addEventListener("wheel", this.handleScroll.bind(this));
   }
 
   private handleOverlayClick(event: Event) {
@@ -92,10 +94,20 @@ class ImageLightbox extends HTMLElement {
     }
   }
 
+  private handleImageClick(event: Event) {
+    event.stopPropagation();
+    this.closeLightbox();
+  }
+
   private handleKeydown(event: KeyboardEvent) {
     if (event.key === "Escape") {
       this.closeLightbox();
     }
+  }
+
+  private handleScroll(event: WheelEvent) {
+    event.preventDefault();
+    this.closeLightbox();
   }
 
   private closeLightbox() {
@@ -123,6 +135,7 @@ class ImageLightbox extends HTMLElement {
     this.image = null;
     document.body.style.overflow = "";
     document.removeEventListener("keydown", this.handleKeydown);
+    document.removeEventListener("wheel", this.handleScroll);
   }
 }
 
