@@ -6,10 +6,10 @@ import { getCollection, type InferEntrySchema } from "astro:content";
 import { format } from "date-fns";
 import Background from "../components/background.astro";
 import Footer from "../components/footer.astro";
+import ImageLightbox from "../components/image-lightbox.astro";
 import Title from "../components/title.astro";
 import { TITLE } from "../constants/seo";
 import Layout from "../layouts/layout.astro";
-import Lightbox from "../components/lightbox.tsx";
 
 const events = await getCollection("events");
 
@@ -66,61 +66,64 @@ const data = await Promise.all(
   >
     <div class="space-y-10 sm:space-y-25">
       {
-        data.map((event, index) => (
-          <article class="space-y-10">
-            <div class="flex flex-col items-center">
-              <h3
-                class:list={[
-                  "faq-header inline-block",
-                  {
-                    "tilt-right": index % 2 === 0,
-                    "tilt-left": index % 2 === 1,
-                  },
-                ]}
-              >
-                {format(event.date, "MMMM do, yyyy")}
-              </h3>
+        data
+          .sort((a, b) => +new Date(b.date) - +new Date(a.date))
+          .map((event, index) => (
+            <article class="space-y-10">
+              <div class="flex flex-col items-center">
+                <h3
+                  class:list={[
+                    "faq-header inline-block",
+                    {
+                      "tilt-right": index % 2 === 0,
+                      "tilt-left": index % 2 === 1,
+                    },
+                  ]}
+                >
+                  {format(event.date, "MMMM do, yyyy")}
+                </h3>
 
-              <p
-                class:list={[
-                  "faq-header inline-block",
-                  {
-                    "tilt-right": index % 2 === 1,
-                    "tilt-left": index % 2 === 0,
-                  },
-                ]}
-              >
-                {`at ${event.location}`}
-              </p>
-            </div>
+                <p
+                  class:list={[
+                    "faq-header inline-block",
+                    {
+                      "tilt-right": index % 2 === 1,
+                      "tilt-left": index % 2 === 0,
+                    },
+                  ]}
+                >
+                  {`at ${event.location}`}
+                </p>
+              </div>
 
-            <Masonry
-              breakpointCols={{
-                default: 4,
-                1024: 3,
-                768: 2,
-                640: 1,
-              }}
-              class="gap-5"
-              sortByHeight
-            >
-              {event.photos
-                .filter((photo) => !!photo.image)
-                .map((photo) => (
-                  <Lightbox client:load>
-                    <Picture
-                      alt={photo.alt}
-                      class:list="rounded-sm mb-5"
-                      formats={["avif", "webp"]}
-                      loading="lazy"
-                      quality="high"
-                      src={photo.image as ImageMetadata}
-                    />
-                  </Lightbox>
-                ))}
-            </Masonry>
-          </article>
-        ))
+              <Masonry
+                breakpointCols={{
+                  default: 4,
+                  1024: 3,
+                  768: 2,
+                  640: 1,
+                }}
+                class="gap-5"
+                sortByHeight
+              >
+                {event.photos
+                  .filter((photo) => !!photo.image)
+                  .map((photo) => (
+                    <ImageLightbox>
+                      <Picture
+                        alt={photo.alt}
+                        class:list="rounded-sm mb-5"
+                        draggable="false"
+                        formats={["avif", "webp"]}
+                        loading="lazy"
+                        quality="high"
+                        src={photo.image as ImageMetadata}
+                      />
+                    </ImageLightbox>
+                  ))}
+              </Masonry>
+            </article>
+          ))
       }
     </div>
   </main>
