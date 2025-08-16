@@ -1,1 +1,1 @@
-export const EVENT_DATE = "2025-07-20";
+export const EVENT_DATE = "2025-09-28";
