@@ -2,7 +2,8 @@ export const REGISTER_LINK = "#!";
 
 export const REGISTER_TABLE_LINK = "#!";
 
-export const SMOKESIGNAL_LINK = "#!";
+export const SMOKESIGNAL_LINK =
+  "https://smokesignal.events/did:plc:lyu5ybynh5od5uelivdlto36/3lwjuh7cnxp2d";
 
 export const BLUESKY_LINK = "https://bsky.app/profile/swapfest.berlin";
 

@@ -12,9 +12,11 @@ const TAB_DATE = `${format(EVENT_DATE, "MMM do")} @ ${LOCATION.NAME}`;
 
 <div class="tabs">
   {
-    Array.from({ length: 16 }).map((_, index) => {
+    Array.from({ length: 24 }).map((_, index) => {
       let breakpoint = "sm";
-      if (index + 1 > 8) {
+      if (index + 1 > 16) {
+        breakpoint = "xl";
+      } else if (index + 1 > 8) {
         breakpoint = "lg";
       } else if (index + 1 > 6) {
         breakpoint = "md";
@@ -68,6 +70,12 @@ const TAB_DATE = `${format(EVENT_DATE, "MMM do")} @ ${LOCATION.NAME}`;
     }
   }
 
+  @media (min-width: 120rem) {
+    .tabs {
+      --cols: 24;
+    }
+  }
+
   .tab {
     --border-style: solid;
     --border-width: 1px;
@@ -77,7 +85,7 @@ const TAB_DATE = `${format(EVENT_DATE, "MMM do")} @ ${LOCATION.NAME}`;
     /* border-top: var(--border-width) var(--border-style) var(--color-black); */
     border-right: var(--border-width) var(--border-style) var(--color-black);
     border-bottom: var(--border-width) var(--border-style) var(--color-black);
-    padding: 10px;
+    padding: 0.625rem;
     cursor: pointer;
     text-align: center;
     transition:
@@ -107,7 +115,8 @@ const TAB_DATE = `${format(EVENT_DATE, "MMM do")} @ ${LOCATION.NAME}`;
   }
 
   .tab[data-breakpoint="md"],
-  .tab[data-breakpoint="lg"] {
+  .tab[data-breakpoint="lg"],
+  .tab[data-breakpoint="xl"] {
     display: none;
   }
 
@@ -123,9 +132,15 @@ const TAB_DATE = `${format(EVENT_DATE, "MMM do")} @ ${LOCATION.NAME}`;
     }
   }
 
+  @media (min-width: 120rem) {
+    .tab[data-breakpoint="xl"] {
+      display: flex;
+    }
+  }
+
   .tab-inner {
-    width: 50px;
-    height: 168px;
+    width: 3.125rem;
+    height: 10.5rem;
   }
 
   .tab-text {

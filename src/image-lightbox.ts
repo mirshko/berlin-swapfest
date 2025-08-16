@@ -58,11 +58,11 @@ class ImageLightbox extends HTMLElement {
         max-width: 90vw;
         max-height: 90vh;
         object-fit: contain;
-        border-radius: 8px;
+        border-radius: 0.5rem;
         transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         transform: scale(0.8);
         opacity: 0;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 1.5rem 2.5rem rgba(0, 0, 0, 0.3);
       `;
 
     this.overlay.append(this.image);
