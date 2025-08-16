@@ -12,16 +12,10 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@astrojs/react": "^4.3.0",
     "@astrojs/sitemap": "^3.4.1",
-    "@types/react": "^19.1.6",
-    "@types/react-dom": "^19.1.6",
     "animejs": "^4.0.2",
     "astro-masonry": "^1.2.2",
-    "date-fns": "^4.1.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "react-medium-image-zoom": "^5.2.14"
+    "date-fns": "^4.1.0"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
