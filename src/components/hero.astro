@@ -50,21 +50,16 @@ import WiggleText from "./wiggle-text.astro";
     />
   </p>
 
-  <p class="register-link">
+  <p>
     <a
       aria-label="Register to attend the Berlin Swapfest"
       class="register-link"
       href={LINKS.REGISTER_LINK}
-      onclick="fathom.trackEvent('click register');"
-      target="_blank">Register to attend</a
+      onclick="fathom.trackEvent('click register to attend');"
+      target="_blank"
     >
-    {" or "}<a
-      aria-label="Register to reserve a table"
-      class="register-link"
-      href={LINKS.REGISTER_TABLE_LINK}
-      onclick="fathom.trackEvent('click reserve table');"
-      target="_blank">reserve a table</a
-    >
+      Register to attend or reserve a table
+    </a>
   </p>
 </header>
 
