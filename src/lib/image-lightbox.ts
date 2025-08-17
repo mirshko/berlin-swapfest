@@ -48,10 +48,10 @@ class ImageLightbox extends HTMLElement {
     // Trigger animation after dialog is shown
     requestAnimationFrame(() => {
       if (this.dialog) {
-        this.dialog.setAttribute("data-state", "open");
+        this.dialog.dataset.state = "open";
       }
       if (this.image) {
-        this.image.setAttribute("data-state", "open");
+        this.image.dataset.state = "open";
       }
     });
 
@@ -91,8 +91,8 @@ class ImageLightbox extends HTMLElement {
     this.isOpen = false;
 
     // Animate out
-    this.dialog.setAttribute("data-state", "closing");
-    this.image.setAttribute("data-state", "closing");
+    this.dialog.dataset.state = "closing";
+    this.image.dataset.state = "closing";
 
     setTimeout(() => {
       this.cleanup();
@@ -113,4 +113,4 @@ class ImageLightbox extends HTMLElement {
 
 customElements.define("image-lightbox", ImageLightbox);
 
-export { };
+export {};
