@@ -38,8 +38,8 @@
   font-size: clamp(1.125rem, 0.875rem + 0.5208vw, 1.5rem);
 }
 
-.register-link {
-  @apply text-center text-[4vw];
+.register-button {
+  @apply hover:bg-highlight inline-block rounded-[0.4em] bg-black px-[0.4em] text-[6vw] whitespace-nowrap text-white hover:text-black;
 }
 
 /* SECTIONS */
