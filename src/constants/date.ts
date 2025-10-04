@@ -1,1 +1,4 @@
-export const EVENT_DATE = "2025-09-28";
+/**
+ * @format 2025-09-28
+ */
+export const EVENT_DATE: string | undefined = undefined;
