@@ -1,5 +1,6 @@
 ---
 import HandpickedBerlin from "../images/logo-handpicked-berlin.svg";
+import BerlinEventsWeekly from "../images/logo-berlin-events-weekly.svg";
 import WiggleText from "./wiggle-text.astro";
 ---
 
@@ -25,17 +26,28 @@ import WiggleText from "./wiggle-text.astro";
   />
 </h2>
 
-<div class="mt-20 flex flex-wrap gap-10">
+<div class="mt-20 flex flex-wrap items-center gap-12">
   <a
-    class="transition-opacity hover:bg-transparent! hover:opacity-60"
     href="https://newsletter.handpickedberlin.com?utm_source=partner&utm_campaign=swapfest&utm_medium=link"
     rel="nofollow"
     target="_blank"
   >
     <HandpickedBerlin
       aria-labelledby="handpicked-berlin"
-      class="h-auto w-[15rem] sm:w-[20rem]"
+      class="h-auto w-[15rem] overflow-visible sm:w-[20rem]"
     />
     <span class="sr-only" id="handpicked-berlin">Handpicked Berlin</span>
+  </a>
+
+  <a
+    href="https://www.berlineventsweekly.com?utm_source=partner&utm_campaign=swapfest&utm_medium=link"
+    rel="nofollow"
+    target="_blank"
+  >
+    <BerlinEventsWeekly
+      aria-labelledby="berlin-events-weekly"
+      class="h-[5rem] w-auto overflow-visible sm:h-[7rem]"
+    />
+    <span class="sr-only" id="berlin-events-weekly">Berlin Events Weekly</span>
   </a>
 </div>

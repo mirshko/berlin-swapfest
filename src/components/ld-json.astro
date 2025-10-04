@@ -1,0 +1,55 @@
+---
+/* eslint-disable astro/no-set-html-directive */
+
+import { format } from "date-fns";
+import type { Event, WithContext } from "schema-dts";
+import * as LOCATION from "../constants/location";
+import * as SEO from "../constants/seo";
+
+export interface Properties {
+  eventDate: string;
+}
+
+const { eventDate } = Astro.props;
+
+const eventStructuredData: WithContext<Event> = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  name: "Berlin Swapfest",
+  startDate: `${format(eventDate, "yyyy-MM-dd")}T12:00-01:00`,
+  endDate: `${format(eventDate, "yyyy-MM-dd")}T17:00-01:00`,
+  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+  eventStatus: "https://schema.org/EventScheduled",
+  location: {
+    "@type": "Place",
+    name: LOCATION.NAME,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: LOCATION.STREET_ADDRESS,
+      addressLocality: LOCATION.ADDRESS_LOCALITY,
+      postalCode: LOCATION.POSTAL_CODE,
+      addressRegion: LOCATION.ADDRESS_REGION,
+      addressCountry: LOCATION.ADDRESS_COUNTRY,
+    },
+  },
+  description: SEO.DESCRIPTION,
+  organizer: [
+    {
+      "@type": "Person",
+      name: "mirshko",
+      url: "https://www.reiner.systems",
+    },
+    {
+      "@type": "Organization",
+      name: LOCATION.NAME,
+      url: LOCATION.URL,
+    },
+  ],
+};
+---
+
+<script
+  is:inline
+  set:html={JSON.stringify(eventStructuredData)}
+  type="application/ld+json"
+/>

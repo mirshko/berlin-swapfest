@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/require-module-specifiers */
 /* eslint-disable unicorn/no-null */
 
 class ImageLightbox extends HTMLElement {
