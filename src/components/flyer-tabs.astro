@@ -1,9 +1,14 @@
 ---
 import { format } from "date-fns";
-import { EVENT_DATE } from "../constants/date";
 import * as LOCATION from "../constants/location";
 
-const TAB_DATE = `${format(EVENT_DATE, "MMM do")} @ ${LOCATION.NAME}`;
+export interface Properties {
+  eventDate: string;
+}
+
+const { eventDate } = Astro.props;
+
+const TAB_DATE = `${format(eventDate, "MMM do")} @ ${LOCATION.NAME}`;
 ---
 
 <div class="tabs">
@@ -93,6 +98,10 @@ const TAB_DATE = `${format(EVENT_DATE, "MMM do")} @ ${LOCATION.NAME}`;
   }
 
   function downloadICS() {
+    if (!EVENT_DATE) {
+      return;
+    }
+
     const ICS_DT_PREFIX = format(new Date(EVENT_DATE));
 
     const icsContent = [
