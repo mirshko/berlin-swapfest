@@ -1,10 +1,8 @@
 ---
-import { FATHOM_SITE } from "astro:env/client";
-
 // eslint-disable-next-line unicorn/prevent-abbreviations, @typescript-eslint/consistent-type-definitions
 export type Props = {
  	enabled?: boolean
-	site?: string
+	site: string
 	honorDnt?: boolean
 	auto?: boolean
 	canonical?: boolean
@@ -16,7 +14,7 @@ export type Props = {
 
 const {
 	enabled = import.meta.env.PROD,
-	site = FATHOM_SITE,
+	site,
 	honorDnt = false,
 	auto = true,
 	canonical = true,
