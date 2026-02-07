@@ -3,10 +3,12 @@
   "name": "berlin-swapfest",
   "compatibility_date": "2025-12-22",
   "assets": {
-    "directory": "./dist",
+    "directory": "dist",
     "not_found_handling": "404-page",
   },
-  "workers_dev": true,
+  "workers_dev": false,
+  "preview_urls": false,
+  "keep_vars": true,
   "routes": [
     {
       "pattern": "swapfest.berlin",

@@ -15,4 +15,9 @@ export default defineConfig(
   {
     ignores: ["dist", ".vercel", ".astro", "node_modules"],
   },
+  {
+    rules: {
+      "astro/no-unsafe-inline-scripts": "off",
+    },
+  },
 );

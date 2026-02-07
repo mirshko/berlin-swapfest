@@ -2,7 +2,6 @@
 import Background from "../components/background.astro";
 import FlyerTabs from "../components/flyer-tabs.astro";
 import Title from "../components/title.astro";
-import * as LINKS from "../constants/links";
 import { EVENT_DATE } from "../constants/date";
 import HeroEventDetails from "./hero-event-details.astro";
 ---
@@ -30,19 +29,7 @@ import HeroEventDetails from "./hero-event-details.astro";
           back in 2026
         </p>
 
-        <p class="sr-only">We're taking a break, back in 2026</p>
-
-        <p class="mt-20">
-          <a
-            aria-label="Subscribe for updates!"
-            class="register-button"
-            href={LINKS.NEWSLETTER_LINK}
-            onclick="fathom.trackEvent('click subscribe for updates');"
-            target="_blank"
-          >
-            Subscribe for updates!
-          </a>
-        </p>
+        <p class="sr-only">We're taking a break, back soon!</p>
       </Fragment>
     )
   }
