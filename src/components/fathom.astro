@@ -1,6 +1,5 @@
 ---
-// eslint-disable-next-line unicorn/prevent-abbreviations, @typescript-eslint/consistent-type-definitions
-export type Props = {
+export interface Props {
  	enabled?: boolean
 	site: string
 	honorDnt?: boolean
@@ -48,6 +47,7 @@ const loadProperties = {
 		console.info(`[astro-fathom] ${scope}(${arguments_.join(", ")})`);
 				};
 			}
+			// eslint-disable-next-line unicorn/no-global-object-property-assignment
 			globalThis.fathom = {};
 			globalThis.fathom.send = logger("send");
 			globalThis.fathom.trackEvent = logger("trackEvent");

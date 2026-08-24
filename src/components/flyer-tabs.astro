@@ -2,7 +2,7 @@
 import { format } from "date-fns";
 import * as LOCATION from "../constants/location";
 
-export interface Properties {
+export interface Props {
   eventDate: string;
 }
 
@@ -13,7 +13,7 @@ const TAB_DATE = `${format(eventDate, "MMM do")} @ ${LOCATION.NAME}`;
 
 <div class="tabs">
   {
-    Array.from({ length: 9 }).map((_, index) => (
+    Array.from({ length: 9 }, (_, index) => (
       <div class="tab" data-breakpoint-md={index >= 5} data-tab-button>
         <span class="tab-inner">
           <span class="tab-text">

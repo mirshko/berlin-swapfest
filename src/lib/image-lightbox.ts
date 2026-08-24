@@ -1,4 +1,5 @@
-/* eslint-disable unicorn/require-module-specifiers */
+/* eslint-disable unicorn/no-top-level-side-effects */
+/* eslint-disable unicorn/consistent-class-member-order */
 /* eslint-disable unicorn/no-null */
 
 class ImageLightbox extends HTMLElement {
@@ -80,10 +81,12 @@ class ImageLightbox extends HTMLElement {
   }
 
   private handleScroll(event: WheelEvent) {
-    if (this.isOpen) {
-      event.preventDefault();
-      this.closeLightbox();
+    if (!this.isOpen) {
+      return;
     }
+
+    event.preventDefault();
+    this.closeLightbox();
   }
 
   private closeLightbox() {

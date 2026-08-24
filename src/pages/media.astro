@@ -30,7 +30,7 @@ async function getEventWithImages(data: InferEntrySchema<"events">) {
   for await (const [path, loader] of eventImages) {
     // eslint-disable-next-line unicorn/no-await-expression-member
     const image = (await loader()).default;
-    const fileName = path.split("/").pop()?.split(".")[0];
+    const fileName = path.split("/").pop()?.split(".", 1)[0];
     if (fileName) {
       imageMap.set(fileName, image);
     }
@@ -68,6 +68,7 @@ const data = await Promise.all(
       {
         data
           .toSorted((a, b) => +new Date(b.date) - +new Date(a.date))
+          .filter((event) => event.photos.some((photo) => !!photo.image))
           .map((event, index) => (
             <article class="space-y-10">
               <div class="flex flex-col items-center">

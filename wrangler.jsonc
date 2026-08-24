@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "berlin-swapfest",
-  "compatibility_date": "2025-12-22",
+  "compatibility_date": "2026-08-24",
   "assets": {
     "directory": "dist",
     "not_found_handling": "404-page",

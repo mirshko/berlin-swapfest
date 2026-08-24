@@ -1,5 +1,7 @@
-import { defineCollection, z } from "astro:content";
+/* eslint-disable unicorn/max-nested-calls */
 import { glob } from "astro/loaders";
+import { z } from "astro/zod";
+import { defineCollection } from "astro:content";
 
 const events = defineCollection({
   loader: glob({
@@ -7,14 +9,9 @@ const events = defineCollection({
     base: "./src/content",
   }),
   schema: z.object({
-    date: z.string().date(),
+    date: z.iso.date(),
     location: z.string(),
-    photos: z.array(
-      z.object({
-        fileName: z.string(),
-        alt: z.string(),
-      }),
-    ),
+    photos: z.array(z.object({ fileName: z.string(), alt: z.string() })),
   }),
 });
 

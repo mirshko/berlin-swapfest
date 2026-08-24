@@ -1,9 +1,9 @@
 import eslint from "@eslint/js";
+import eslintPluginAstro from "eslint-plugin-astro";
+import jsxA11y from "eslint-plugin-jsx-a11y";
+import eslintPluginUnicorn from "eslint-plugin-unicorn";
 import { defineConfig } from "eslint/config";
 import tseslint from "typescript-eslint";
-import eslintPluginAstro from "eslint-plugin-astro";
-import eslintPluginUnicorn from "eslint-plugin-unicorn";
-import jsxA11y from "eslint-plugin-jsx-a11y";
 
 export default defineConfig(
   eslint.configs.recommended,
@@ -13,11 +13,12 @@ export default defineConfig(
   jsxA11y.flatConfigs.recommended,
   ...eslintPluginAstro.configs.all,
   {
-    ignores: ["dist", ".vercel", ".astro", "node_modules"],
+    ignores: ["dist", ".astro", "node_modules", "worker-configuration.d.ts"],
   },
   {
     rules: {
       "astro/no-unsafe-inline-scripts": "off",
+      "unicorn/name-replacements": "warn",
     },
   },
 );
