@@ -16,6 +16,7 @@ jobs:
         with:
           node-version: 25
           cache: "pnpm"
+      - run: pnpm install --frozen-lockfile
       - run: pnpm lint
   astro-check:
     runs-on: ubuntu-latest
@@ -26,6 +27,7 @@ jobs:
         with:
           node-version: 25
           cache: "pnpm"
+      - run: pnpm install --frozen-lockfile
       - run: pnpm astro check --minimumFailingSeverity hint
   prettier-check:
     runs-on: ubuntu-latest
@@ -36,4 +38,5 @@ jobs:
         with:
           node-version: 25
           cache: "pnpm"
+      - run: pnpm install --frozen-lockfile
       - run: pnpm prettier:check
